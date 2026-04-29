@@ -1,1 +1,0 @@
-import"./hoisted.Cu2fwlhB.js";const e=document.getElementById("lead-form"),d=document.getElementById("lead-success");e?.addEventListener("submit",s=>{s.preventDefault();const t=e.querySelector('input[type="email"]')?.value;!t||!t.includes("@")||(e.classList.add("hidden"),d?.classList.remove("hidden"))});
