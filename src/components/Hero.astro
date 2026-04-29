@@ -1,0 +1,80 @@
+---
+import { type Lang, useTranslations } from '../i18n/index';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const orgs = [
+  { name: 'EUIPO', logo: '/logos/euipo.svg' },
+  { name: 'WIPO', logo: '/logos/wipo.svg' },
+  { name: 'INTA', logo: '/logos/inta.svg' },
+  { name: 'SAKPATENTI', logo: '/logos/sakpatenti.svg' },
+];
+---
+
+<section class="relative bg-navy overflow-hidden">
+  <!-- Decorative gradient -->
+  <div
+    class="absolute inset-0 pointer-events-none"
+    style="background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(196,168,75,0.10) 0%, transparent 70%), radial-gradient(ellipse 40% 80% at 5% 80%, rgba(29,83,154,0.3) 0%, transparent 60%)"
+    aria-hidden="true"
+  ></div>
+
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20 text-center">
+
+    <!-- Trust badge -->
+    <div class="inline-flex items-center gap-2.5 bg-white/10 text-gold border border-gold/20 px-4 py-2 rounded-full text-sm font-medium mb-10">
+      <span class="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0"></span>
+      {t('hero.trusted')}
+    </div>
+
+    <!-- Headline -->
+    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 max-w-4xl mx-auto text-balance">
+      {t('hero.headline')}
+    </h1>
+
+    <!-- Sub-headline -->
+    <p class="text-slate-300 text-lg sm:text-xl max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+      {t('hero.subheadline')}
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="#booking"
+        class="bg-gold hover:bg-gold-light text-navy font-bold px-8 py-4 rounded-xl transition-colors text-center shadow-lg shadow-gold/20"
+      >
+        {t('hero.cta.primary')}
+      </a>
+      <a
+        href="#services"
+        class="border border-white/25 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-xl transition-colors text-center"
+      >
+        {t('hero.cta.secondary')}
+      </a>
+    </div>
+  </div>
+
+  <!-- Institution banner -->
+  <div class="relative border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <p class="text-center text-slate-500 text-xs uppercase tracking-widest font-medium mb-8">
+        Partner institutions & affiliations
+      </p>
+      <div class="flex flex-wrap justify-center items-center gap-10 sm:gap-16">
+        {orgs.map(({ name, logo }) => (
+          <img
+            src={logo}
+            alt={name}
+            height="36"
+            class="h-8 sm:h-9 w-auto object-contain opacity-50 hover:opacity-80 transition-opacity"
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

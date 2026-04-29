@@ -1,0 +1,62 @@
+You are an expert web developer and digital strategist. Your task is to build a premium, mobile-first personal consulting website using Astro, Tailwind CSS, and TypeScript. The client is a senior Intellectual Property (IP) Consultant transitioning from 19 years of institutional leadership into high-end freelance advisory services. The website must act as a credibility engine, lead capture tool, and automated scheduling platform.
+
+Phase 1: Technical Architecture & Design System
+
+    Initialize a new Astro project equipped with Tailwind CSS and TypeScript.
+
+    Install the @astrojs/react integration. This is strictly required to render the Cal.com React components as interactive islands.
+
+    Implement a modern, minimalist design system. Use abundant negative space, crisp typography, and a trust-forward color palette (e.g., deep navy, slate gray, and clean white).
+
+    Ensure strict adherence to Web Content Accessibility Guidelines (WCAG), including high contrast ratios and keyboard navigability.
+
+Phase 2: Multilingual Infrastructure
+
+    The consultant speaks English, Georgian, Russian, German, and Spanish. Set up Astro's routing to support subdirectories for each language (e.g., /en/, /ka/, /es/).
+
+    Implement a sleek language switcher in the main navigation header.
+
+Phase 3: Page Structure & High-Converting Copy
+Generate the following sections with robust, professional placeholder copy:
+
+    Global Header: Sticky navigation with links to Services, About, Insights, and a prominent "Book Consultation" button.
+
+    Hero Section:
+
+        Headline: "Strategic Intellectual Property Consulting & Brand Protection."
+
+        Sub-headline: "Translating 19 years of institutional legal expertise into actionable commercial value."
+
+        Include a banner underneath featuring text placeholders for institutional logos (EUIPO, WIPO, INTA, SAKPATENTI).
+
+    Services Breakdown: Build a responsive grid that outlines her specific offerings:
+
+        Institutional IP Policy & Capacity Building.
+
+        Cross-Border IP Strategy & Dispute Resolution.
+
+        IP Portfolio Management & Brand Protection.
+
+        Geographical Indications (GI) Consultancy.
+
+        IP Training & Educational Programs.
+
+    The "About Me" Narrative: Create a section that bridges her bureaucratic background to her consulting present. Highlight her roles as Deputy Chairperson at SAKPATENTI, her work with the EUIPO, and her status as a WIPO-certified trainer.
+
+    Social Proof: Add a dedicated section for client and colleague testimonials to build immediate trust.
+
+    Lead Magnet (Email Capture): Create a section offering a downloadable resource (e.g., "The Executive Guide to EU-Acquis IP Harmonization") connected to a simple email capture form to nurture leads who aren't ready to book yet.
+
+    Automated Booking (Cal.com):
+
+        Install the @calcom/embed-react package.
+
+        Create a dedicated booking component that embeds the Cal.com interface directly inline using the React component wrapped in a client-side Astro Island.
+
+    Compliance Footer: Include links to a Privacy Policy, Terms & Conditions, and a GDPR-compliant cookie consent banner.
+
+Phase 4: Deployment Preparation
+
+    Ensure the package.json build scripts are correctly configured for Astro.
+
+    Once the codebase is fully generated and robust, output the exact steps and terminal commands required for the user to deploy this app directly to Vercel using the Vercel CLI (i.e., the vercel command from the root directory). Ensure you remind the user to install the Vercel CLI first if they haven't already.
