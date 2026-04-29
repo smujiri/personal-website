@@ -1,135 +1,22 @@
 ---
-// Remove this file and restore the redirect to /en/ when ready to launch
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import About from '../components/About.astro';
+import Testimonials from '../components/Testimonials.astro';
+import LeadMagnet from '../components/LeadMagnet.astro';
+import BookingSection from '../components/BookingSection.astro';
+import { useTranslations } from '../i18n/index';
+
+const lang = 'en';
+const t = useTranslations(lang);
 ---
 
-<!DOCTYPE html>
-<html lang="en" class="h-full">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coming Soon — IP Consulting</title>
-    <meta name="description" content="Strategic Intellectual Property Consulting. Launching soon." />
-    <meta name="robots" content="noindex, nofollow" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
-    <style>
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-      body {
-        font-family: 'Inter', system-ui, sans-serif;
-        background-color: #0D1B2E;
-        color: #fff;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 2rem;
-        text-align: center;
-      }
-      .brand {
-        font-family: 'Playfair Display', Georgia, serif;
-        font-size: clamp(1.5rem, 4vw, 2.25rem);
-        font-weight: 700;
-        letter-spacing: -0.01em;
-        margin-bottom: 2.5rem;
-      }
-      .brand span { color: #C4A84B; }
-      .divider {
-        width: 48px;
-        height: 2px;
-        background: linear-gradient(to right, #C4A84B, #D4BC6E);
-        margin: 0 auto 2.5rem;
-        border-radius: 99px;
-      }
-      h1 {
-        font-family: 'Playfair Display', Georgia, serif;
-        font-size: clamp(2rem, 6vw, 3.5rem);
-        font-weight: 700;
-        line-height: 1.15;
-        margin-bottom: 1.25rem;
-        max-width: 600px;
-      }
-      p {
-        color: #94a3b8;
-        font-size: 1.0625rem;
-        line-height: 1.7;
-        max-width: 480px;
-        margin-bottom: 2.5rem;
-        font-weight: 300;
-      }
-      .form {
-        display: flex;
-        gap: 0.75rem;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 100%;
-        max-width: 420px;
-        margin-bottom: 1rem;
-      }
-      .form input {
-        flex: 1;
-        min-width: 200px;
-        padding: 0.8rem 1.1rem;
-        border-radius: 0.625rem;
-        border: 1px solid rgba(255,255,255,0.12);
-        background: rgba(255,255,255,0.06);
-        color: #fff;
-        font-size: 0.9rem;
-        font-family: 'Inter', sans-serif;
-        outline: none;
-        transition: border-color 0.15s;
-      }
-      .form input::placeholder { color: #64748b; }
-      .form input:focus { border-color: #C4A84B; }
-      .form button {
-        padding: 0.8rem 1.5rem;
-        border-radius: 0.625rem;
-        background: #C4A84B;
-        color: #0D1B2E;
-        font-weight: 600;
-        font-size: 0.9rem;
-        font-family: 'Inter', sans-serif;
-        border: none;
-        cursor: pointer;
-        transition: background 0.15s;
-        white-space: nowrap;
-      }
-      .form button:hover { background: #D4BC6E; }
-      .note {
-        color: #475569;
-        font-size: 0.78rem;
-        margin-bottom: 0;
-      }
-      .success { color: #C4A84B; font-size: 0.95rem; display: none; }
-    </style>
-  </head>
-  <body>
-    <div class="brand">IP <span>Consulting</span></div>
-    <div class="divider"></div>
-    <h1>Something exceptional<br/>is coming.</h1>
-    <p>A new standard in Intellectual Property advisory. Strategic, commercial, and built on 19 years of institutional expertise. Launching shortly.</p>
-
-    <form class="form" id="notify-form" novalidate>
-      <input type="email" placeholder="your@email.com" required aria-label="Email address" />
-      <button type="submit">Notify me</button>
-    </form>
-    <p class="note">No spam. Just the launch announcement.</p>
-    <p class="success" id="success-msg">You're on the list — we'll be in touch.</p>
-
-    <script>
-      const form = document.getElementById('notify-form');
-      const success = document.getElementById('success-msg');
-      form?.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const email = form.querySelector('input')?.value;
-        if (!email || !email.includes('@')) return;
-        // TODO: connect to your email provider
-        form.style.display = 'none';
-        document.querySelector('.note').style.display = 'none';
-        success.style.display = 'block';
-      });
-    </script>
-  </body>
-</html>
+<Layout lang={lang} title={t('meta.title')} description={t('meta.description')}>
+  <Hero lang={lang} />
+  <Services lang={lang} />
+  <About lang={lang} />
+  <Testimonials lang={lang} />
+  <LeadMagnet lang={lang} />
+  <BookingSection lang={lang} />
+</Layout>
