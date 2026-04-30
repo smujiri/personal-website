@@ -7,6 +7,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+const base = `/${lang}`;
 
 const credentials = ['about.cred1', 'about.cred2', 'about.cred3', 'about.cred4'] as const;
 const stats = [
@@ -34,7 +35,7 @@ const stats = [
           </p>
         </div>
         <a
-          href="#booking"
+          href={`${base}/#booking`}
           class="inline-flex items-center gap-3 self-start bg-white text-charcoal font-display font-bold text-xs uppercase tracking-widest px-6 py-3.5 hover:bg-cream transition-colors duration-200"
         >
           Work Together
@@ -87,10 +88,10 @@ const stats = [
       ))}
     </div>
 
-    <!-- Name watermark — larger, more impact -->
+    <!-- Name watermark -->
     <div class="reveal py-10 overflow-hidden">
-      <p class="font-display font-black text-white/8 uppercase leading-none tracking-tighter select-none whitespace-nowrap"
-        style="font-size: clamp(3.5rem, 9vw, 8rem);">
+      <p class="font-display font-black text-white/10 uppercase leading-none tracking-tight select-none"
+        style="font-size: clamp(2rem, 7vw, 7rem);">
         SOPHIO MUJIRI
       </p>
       <p class="font-display font-medium text-white/25 uppercase tracking-widest text-xs mt-3">

@@ -7,6 +7,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+const base = `/${lang}`;
 
 const orgs = [
   { name: 'EUIPO', logo: '/logos/euipo.svg' },
@@ -50,13 +51,13 @@ const orgs = [
       </p>
       <div class="hero-ctas flex flex-col sm:flex-row gap-3">
         <a
-          href="#booking"
+          href={`${base}/#booking`}
           class="bg-white text-charcoal font-display font-bold text-xs uppercase tracking-widest px-8 py-4 hover:bg-cream transition-colors duration-200 text-center"
         >
           {t('hero.cta.primary')}
         </a>
         <a
-          href="#services"
+          href={`${base}/#services`}
           class="border border-white/25 text-white font-display font-semibold text-xs uppercase tracking-widest px-8 py-4 hover:bg-white/8 transition-colors duration-200 text-center"
         >
           {t('hero.cta.secondary')}
