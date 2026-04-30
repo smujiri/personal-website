@@ -73,11 +73,11 @@ const stats = [
       </div>
     </div>
 
-    <!-- Stats row — left-aligned, editorial -->
-    <div class="reveal grid grid-cols-3 gap-0 py-14 border-b border-white/10">
-      {stats.map(({ value, label }, i) => (
-        <div class={`${i > 0 ? 'pl-8 border-l border-white/10' : ''} ${i < 2 ? 'pr-8' : ''}`}>
-          <div class="font-display font-black text-white text-5xl sm:text-6xl leading-none mb-3 tabular-nums">
+    <!-- Stats row -->
+    <div class="reveal grid grid-cols-1 sm:grid-cols-3 gap-0 py-14 border-b border-white/10 divide-y sm:divide-y-0 sm:divide-x divide-white/10">
+      {stats.map(({ value, label }) => (
+        <div class="py-6 sm:py-0 sm:px-8 first:pt-0 last:pb-0 sm:first:pl-0 sm:last:pr-0">
+          <div class="font-display font-black text-white text-5xl sm:text-5xl leading-none mb-3 tabular-nums">
             {t(value)}
           </div>
           <div class="font-display text-xs font-medium uppercase tracking-widest text-white/30 leading-relaxed">
