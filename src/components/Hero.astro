@@ -16,7 +16,7 @@ const orgs = [
 ];
 ---
 
-<section class="relative min-h-screen flex flex-col overflow-hidden bg-charcoal">
+<section class="relative flex flex-col overflow-hidden bg-charcoal" style="min-height: calc(100vh - 4rem)">
 
   <!-- Silk texture -->
   <div
@@ -30,22 +30,22 @@ const orgs = [
   <!-- Content -->
   <div class="relative flex-1 flex flex-col max-w-7xl mx-auto w-full px-6 lg:px-10 pt-16">
 
-    <!-- Tagline top-right — much larger, the brand's voice -->
-    <div class="hero-tagline flex justify-end pt-10 mb-auto">
-      <p class="font-display font-black text-white uppercase leading-none text-3xl sm:text-5xl lg:text-6xl tracking-tight text-right">
+    <!-- Tagline top-right -->
+    <div class="hero-tagline flex justify-end pt-6 mb-auto">
+      <p class="font-display font-black text-white uppercase leading-none text-2xl sm:text-3xl lg:text-4xl tracking-tight text-right">
         PROTECT NOW.<br />LEAD TOMORROW.
       </p>
     </div>
 
-    <!-- Main content centre -->
-    <div class="flex-1 flex flex-col justify-center py-16 lg:py-24 max-w-4xl">
-      <p class="hero-label font-display text-xs font-semibold uppercase tracking-widest2 text-white/40 mb-5">
+    <!-- Main content -->
+    <div class="flex-1 flex flex-col justify-center py-8 lg:py-12 max-w-4xl">
+      <p class="hero-label font-display text-xs font-semibold uppercase tracking-widest2 text-white/40 mb-4">
         Intellectual Property Advisory
       </p>
-      <h1 class="hero-heading font-display font-black text-white uppercase leading-none text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] mb-8 tracking-tight">
+      <h1 class="hero-heading font-display font-black text-white uppercase leading-none text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mb-6 tracking-tight">
         {t('hero.headline')}
       </h1>
-      <p class="hero-sub text-white/55 text-base sm:text-lg max-w-lg mb-12 font-light leading-relaxed">
+      <p class="hero-sub text-white/55 text-sm sm:text-base max-w-lg mb-8 font-light leading-relaxed">
         {t('hero.subheadline')}
       </p>
       <div class="hero-ctas flex flex-col sm:flex-row gap-3">
@@ -65,9 +65,9 @@ const orgs = [
     </div>
 
     <!-- SM monogram bottom-left -->
-    <div class="hero-monogram pb-8 select-none" aria-hidden="true">
+    <div class="hero-monogram pb-6 select-none" aria-hidden="true">
       <span class="font-display font-black text-white/15 leading-none uppercase"
-        style="font-size: clamp(6rem, 15vw, 12rem); line-height: 1;">
+        style="font-size: clamp(4rem, 10vw, 8rem); line-height: 1;">
         SM
       </span>
     </div>
