@@ -3,7 +3,10 @@
     "allow": [
       "Bash(npm --version)",
       "Bash(npm install *)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(magick \"Sophio Mujiri.pdf[0]\" -density 200 card_preview.png)",
+      "Bash(python -c ' *)",
+      "PowerShell(Copy-Item *)"
     ]
   }
 }

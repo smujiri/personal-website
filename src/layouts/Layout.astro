@@ -27,11 +27,11 @@ const t = useTranslations(lang);
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body class="bg-white text-slate-800">
+  <body class="bg-cream-light text-charcoal">
     <Header lang={lang} />
     <main>
       <slot />
@@ -44,5 +44,17 @@ const t = useTranslations(lang);
       declineText={t('cookie.decline')}
       privacyHref="/privacy"
     />
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in-view');
+            observer.unobserve(e.target);
+          }
+        }),
+        { threshold: 0.12 }
+      );
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
   </body>
 </html>
