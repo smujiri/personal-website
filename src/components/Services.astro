@@ -9,11 +9,19 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 
 const services = [
-  { key: 'service1', num: '01' },
-  { key: 'service2', num: '02' },
-  { key: 'service3', num: '03' },
-  { key: 'service4', num: '04' },
-  { key: 'service5', num: '05' },
+  { key: 'service1',  num: '01', slug: 'trademarks' },
+  { key: 'service2',  num: '02', slug: 'industrial-designs' },
+  { key: 'service3',  num: '03', slug: 'patents-utility-models' },
+  { key: 'service4',  num: '04', slug: 'geographical-indications' },
+  { key: 'service5',  num: '05', slug: 'new-plant-varieties' },
+  { key: 'service6',  num: '06', slug: 'copyright-related-rights' },
+  { key: 'service7',  num: '07', slug: 'domain-names-digital-protection' },
+  { key: 'service8',  num: '08', slug: 'ip-strategy-consulting' },
+  { key: 'service9',  num: '09', slug: 'enforcement-anti-counterfeiting' },
+  { key: 'service10', num: '10', slug: 'legal-contractual-services' },
+  { key: 'service11', num: '11', slug: 'litigation-dispute-resolution' },
+  { key: 'service12', num: '12', slug: 'government-institutional-consulting' },
+  { key: 'service13', num: '13', slug: 'ip-education' },
 ] as const;
 ---
 
@@ -35,12 +43,12 @@ const services = [
 
     <!-- Services list -->
     <div class="divide-y divide-cream-dark">
-      {services.map(({ key, num }, i) => (
-        <article
-          class={`reveal reveal-delay-${Math.min(i + 1, 4)} group grid grid-cols-12 gap-x-6 gap-y-2 py-8 -mx-6 px-6 cursor-default`}
-          style={`--hover-bg: #EDE7DB;`}
+      {services.map(({ key, num, slug }, i) => (
+        <a
+          href={`/en/services/${slug}`}
+          class={`reveal reveal-delay-${Math.min(i + 1, 4)} group relative grid grid-cols-12 gap-x-6 gap-y-2 py-8 -mx-6 px-6 no-underline`}
         >
-          <!-- Hover background via JS-free approach -->
+          <!-- Hover background -->
           <div class="absolute inset-0 bg-cream opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 pointer-events-none"></div>
 
           <!-- Number -->
@@ -62,7 +70,7 @@ const services = [
             </p>
           </div>
 
-          <!-- Arrow — fixed: single transition-all -->
+          <!-- Arrow -->
           <div class="hidden sm:flex col-span-12 sm:col-span-1 items-start justify-end pt-0.5">
             <svg
               class="w-4 h-4 text-charcoal opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
@@ -71,7 +79,7 @@ const services = [
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </div>
-        </article>
+        </a>
       ))}
     </div>
   </div>

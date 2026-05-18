@@ -9,10 +9,38 @@ interface Props {
   lang: Lang;
   title: string;
   description?: string;
+  /** Pass hreflang alternates for pages that have language versions */
+  alternates?: { lang: string; href: string }[];
 }
 
-const { lang, title, description } = Astro.props;
+const { lang, title, description, alternates } = Astro.props;
 const t = useTranslations(lang);
+const canonicalUrl = `https://mujiri.ge${Astro.url.pathname}`;
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['LegalService', 'ProfessionalService'],
+  name: 'SM Consulting',
+  description: 'SM Consulting is a full-service intellectual property and business law firm based in Tbilisi, Georgia, working with trusted partners worldwide.',
+  url: 'https://mujiri.ge',
+  logo: 'https://mujiri.ge/favicon.svg',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Zurab Avalishvili 13, Block B',
+    addressLocality: 'Tbilisi',
+    postalCode: '0179',
+    addressCountry: 'GE',
+  },
+  telephone: '+995555955550',
+  email: 'info@mujiri.ge',
+  founder: {
+    '@type': 'Person',
+    name: 'Sophio Mujiri',
+    jobTitle: 'Patent Attorney & Attorney at Law',
+  },
+  areaServed: 'Worldwide',
+  sameAs: ['https://www.linkedin.com/in/sophio-mujiri/'],
+};
 ---
 
 <!DOCTYPE html>
@@ -20,16 +48,37 @@ const t = useTranslations(lang);
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary -->
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
     <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="SM Consulting" />
+    <meta property="og:locale" content={lang === 'ka' ? 'ka_GE' : 'en_US'} />
+
+    <!-- Hreflang -->
+    {alternates?.map(alt => (
+      <link rel="alternate" hreflang={alt.lang} href={alt.href} />
+    ))}
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
   </head>
   <body class="bg-cream-light text-charcoal">
     <Header lang={lang} />

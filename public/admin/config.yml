@@ -1,0 +1,29 @@
+backend:
+  name: github
+  repo: smujiri/personal-website
+  branch: main
+  base_url: https://mujiri.ge
+  auth_endpoint: /api/auth
+
+media_folder: public/uploads
+public_folder: /uploads
+
+locale: en
+
+collections:
+  - name: blog
+    label: "News & Insights"
+    label_singular: "Post"
+    folder: src/content/blog
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: title, widget: string }
+      - { label: "Short Description", name: description, widget: string, hint: "Appears on the listing page and in search results (1-2 sentences)" }
+      - { label: "Publication Date", name: pubDate, widget: datetime }
+      - label: "Tags"
+        name: tags
+        widget: list
+        required: false
+        hint: "e.g. Trademarks, Patent Law, IP Strategy"
+      - { label: "Article", name: body, widget: markdown }

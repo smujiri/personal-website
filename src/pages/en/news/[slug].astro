@@ -1,0 +1,105 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+---
+
+<Layout
+  lang="en"
+  title={`${post.data.title} | SM Consulting`}
+  description={post.data.description}
+>
+
+  <!-- Hero -->
+  <section class="bg-charcoal text-cream">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-10 pb-6">
+      <a
+        href="/en/news/"
+        class="inline-flex items-center gap-2 font-display text-xs font-semibold uppercase tracking-widest text-white/35 hover:text-white/70 transition-colors duration-200 mb-12"
+      >
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+        </svg>
+        News & Insights
+      </a>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 pb-20 border-b border-white/10">
+      <div class="flex flex-wrap items-center gap-4 mb-6">
+        <time
+          datetime={post.data.pubDate.toISOString()}
+          class="font-display text-xs font-medium uppercase tracking-widest text-white/40"
+        >
+          {formatDate(post.data.pubDate)}
+        </time>
+        {post.data.tags && post.data.tags.map(tag => (
+          <span class="font-display text-xs font-semibold uppercase tracking-widest text-white/30 border border-white/15 px-2 py-0.5">
+            {tag}
+          </span>
+        ))}
+      </div>
+      <h1 class="font-display font-black text-white uppercase text-3xl sm:text-4xl lg:text-5xl leading-none tracking-tight mb-6 max-w-4xl">
+        {post.data.title}
+      </h1>
+      <p class="text-white/45 text-base font-light leading-relaxed max-w-2xl">
+        {post.data.description}
+      </p>
+    </div>
+  </section>
+
+  <!-- Article body -->
+  <section class="bg-cream-light">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20">
+      <div class="max-w-3xl prose prose-sm prose-neutral
+        prose-headings:font-display prose-headings:font-bold prose-headings:uppercase prose-headings:tracking-tight prose-headings:text-charcoal
+        prose-h2:text-xl prose-h2:mt-12 prose-h2:mb-4 prose-h2:pb-3 prose-h2:border-b prose-h2:border-cream-dark
+        prose-h3:text-sm prose-h3:tracking-widest prose-h3:mt-8 prose-h3:mb-3
+        prose-p:text-charcoal-muted prose-p:leading-relaxed prose-p:font-light
+        prose-a:text-charcoal prose-a:font-semibold prose-a:underline-offset-4
+        prose-strong:text-charcoal prose-strong:font-bold
+        prose-ul:text-charcoal-muted prose-li:leading-relaxed
+        prose-blockquote:border-l-charcoal prose-blockquote:text-charcoal-muted prose-blockquote:font-light prose-blockquote:italic
+        max-w-none">
+        <Content />
+      </div>
+      <div class="max-w-3xl mt-12 pt-8 border-t border-cream-dark">
+        <p class="font-display text-xs font-medium uppercase tracking-widest text-charcoal/40">
+          {post.data.author} · {formatDate(post.data.pubDate)}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-charcoal py-24">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <p class="font-display text-xs font-semibold uppercase tracking-widest text-white/30 mb-5">Need advice?</p>
+      <h2 class="font-display font-black text-white uppercase text-3xl sm:text-4xl leading-none tracking-tight mb-10">
+        Book a Consultation
+      </h2>
+      <a
+        href="/en/#booking"
+        class="inline-flex items-center gap-3 bg-white text-charcoal font-display font-bold text-xs uppercase tracking-widest px-8 py-4 hover:bg-cream transition-colors duration-200"
+      >
+        Schedule Now
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+</Layout>

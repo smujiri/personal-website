@@ -1,0 +1,101 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const lang = 'en';
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+---
+
+<Layout
+  lang={lang}
+  title="News & Insights | SM Consulting — IP Law Georgia"
+  description="Latest news, legal analysis, and insights on intellectual property law in Georgia and internationally from SM Consulting."
+>
+
+  <!-- Hero -->
+  <section class="bg-charcoal text-cream border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-10 pb-4">
+      <a
+        href="/en/"
+        class="inline-flex items-center gap-2 font-display text-xs font-semibold uppercase tracking-widest text-white/35 hover:text-white/70 transition-colors duration-200 mb-12"
+      >
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+        </svg>
+        Home
+      </a>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 pb-20">
+      <p class="font-display text-xs font-semibold uppercase tracking-widest text-white/30 mb-5">SM Consulting</p>
+      <h1 class="font-display font-black text-white uppercase text-4xl sm:text-5xl lg:text-6xl leading-none tracking-tight">
+        News & Insights
+      </h1>
+    </div>
+  </section>
+
+  <!-- Posts -->
+  <section class="bg-cream-light">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20">
+
+      {posts.length === 0 ? (
+        <div class="max-w-xl">
+          <p class="font-display text-xs font-semibold uppercase tracking-widest text-charcoal/30 mb-4">Coming soon</p>
+          <p class="text-charcoal-muted text-sm leading-relaxed">
+            Articles and insights on intellectual property law, trademark strategy, patent protection, and innovation in Georgia and beyond — coming soon.
+          </p>
+        </div>
+      ) : (
+        <div class="divide-y divide-cream-dark">
+          {posts.map(post => (
+            <article class="group py-10 grid grid-cols-1 lg:grid-cols-12 gap-6">
+              <div class="lg:col-span-3">
+                <time
+                  datetime={post.data.pubDate.toISOString()}
+                  class="font-display text-xs font-medium uppercase tracking-widest text-charcoal/40"
+                >
+                  {formatDate(post.data.pubDate)}
+                </time>
+                {post.data.tags && post.data.tags.length > 0 && (
+                  <div class="flex flex-wrap gap-2 mt-3">
+                    {post.data.tags.map(tag => (
+                      <span class="font-display text-xs font-semibold uppercase tracking-widest text-charcoal/50 border border-cream-dark px-2 py-0.5">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+              <div class="lg:col-span-8">
+                <h2 class="font-display font-black text-charcoal uppercase text-xl sm:text-2xl leading-tight tracking-tight mb-3 group-hover:text-charcoal-light transition-colors">
+                  <a href={`/en/news/${post.slug}/`} class="no-underline">
+                    {post.data.title}
+                  </a>
+                </h2>
+                <p class="text-charcoal-muted text-sm leading-relaxed font-light mb-5">
+                  {post.data.description}
+                </p>
+                <a
+                  href={`/en/news/${post.slug}/`}
+                  class="inline-flex items-center gap-2 font-display font-bold text-xs uppercase tracking-widest text-charcoal hover:text-charcoal-light transition-colors no-underline"
+                >
+                  Read article
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      )}
+
+    </div>
+  </section>
+
+</Layout>

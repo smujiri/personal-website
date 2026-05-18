@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /de/
+Disallow: /ru/
+Disallow: /es/
+
+Sitemap: https://mujiri.ge/sitemap.xml

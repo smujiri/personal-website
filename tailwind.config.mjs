@@ -1,3 +1,5 @@
+import typography from '@tailwindcss/typography';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx}'],
@@ -15,6 +17,11 @@ export default {
           muted: '#6B6B6B',
         },
         silver: '#B8B4AC',
+        navy: '#0f172a',
+        gold: {
+          DEFAULT: '#c9a84c',
+          light: '#d4b96a',
+        },
       },
       fontFamily: {
         display: ['Outfit', 'system-ui', 'sans-serif'],
@@ -25,5 +32,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [typography],
 };

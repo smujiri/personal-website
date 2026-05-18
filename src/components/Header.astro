@@ -1,4 +1,5 @@
 ---
+import { servicesData } from '../data/services';
 import { type Lang, useTranslations } from '../i18n/index';
 
 interface Props {
@@ -8,6 +9,9 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 const base = `/${lang}`;
+
+const col1 = servicesData.slice(0, 7);
+const col2 = servicesData.slice(7);
 ---
 
 <header class="sticky top-0 z-40 bg-cream-light/95 backdrop-blur-sm border-b border-cream-dark">
@@ -20,12 +24,34 @@ const base = `/${lang}`;
 
     <!-- Desktop nav -->
     <div class="hidden md:flex items-center gap-8">
-      <a href={`${base}/#services`} class="font-display text-xs font-semibold uppercase tracking-widest text-charcoal-muted hover:text-charcoal transition-colors">
+
+      <!-- Services trigger -->
+      <button
+        id="services-trigger"
+        class="font-display text-xs font-semibold uppercase tracking-widest text-charcoal-muted hover:text-charcoal transition-colors flex items-center gap-1.5"
+        aria-expanded="false"
+        aria-controls="services-dropdown"
+      >
         {t('nav.services')}
-      </a>
+        <svg id="services-chevron" class="w-3 h-3 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
       <a href={`${base}/#about`} class="font-display text-xs font-semibold uppercase tracking-widest text-charcoal-muted hover:text-charcoal transition-colors">
         {t('nav.about')}
       </a>
+
+      <a href="/en/news/" class="font-display text-xs font-semibold uppercase tracking-widest text-charcoal-muted hover:text-charcoal transition-colors whitespace-nowrap">
+        {t('nav.insights')}
+      </a>
+
+      <!-- Language switcher -->
+      <div class="flex items-center border border-cream-dark">
+        <a href="/en/" class={`font-display text-xs font-semibold uppercase tracking-widest px-2.5 py-1.5 transition-colors ${lang === 'en' ? 'bg-charcoal text-cream' : 'text-charcoal-muted hover:text-charcoal'}`}>EN</a>
+        <a href="/ka/" class={`font-display text-xs font-semibold uppercase tracking-widest px-2.5 py-1.5 transition-colors ${lang === 'ka' ? 'bg-charcoal text-cream' : 'text-charcoal-muted hover:text-charcoal'}`}>KA</a>
+      </div>
+
       <a
         href={`${base}/#booking`}
         class="bg-charcoal text-cream font-display text-xs font-semibold uppercase tracking-widest px-5 py-2.5 hover:bg-charcoal-light transition-colors whitespace-nowrap"
@@ -50,12 +76,99 @@ const base = `/${lang}`;
     </button>
   </nav>
 
+  <!-- Desktop services mega-menu -->
+  <div
+    id="services-dropdown"
+    class="hidden border-t border-cream-dark bg-cream-light"
+  >
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-8">
+      <p class="font-display text-xs font-semibold uppercase tracking-widest text-charcoal/25 mb-6">Practice Areas</p>
+      <div class="grid grid-cols-2 gap-x-16">
+
+        <div class="divide-y divide-cream-dark">
+          {col1.map((s, i) => (
+            <a
+              href={`/en/services/${s.slug}`}
+              class="group flex items-center gap-4 py-3 no-underline"
+            >
+              <span class="font-display font-light text-charcoal/25 text-xs w-5 shrink-0 tabular-nums">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <span class="font-display font-bold text-charcoal-muted group-hover:text-charcoal uppercase text-xs tracking-widest transition-colors duration-150">
+                {s.title}
+              </span>
+              <svg class="w-3 h-3 ml-auto opacity-0 group-hover:opacity-50 transition-opacity shrink-0 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          ))}
+        </div>
+
+        <div class="divide-y divide-cream-dark">
+          {col2.map((s, i) => (
+            <a
+              href={`/en/services/${s.slug}`}
+              class="group flex items-center gap-4 py-3 no-underline"
+            >
+              <span class="font-display font-light text-charcoal/25 text-xs w-5 shrink-0 tabular-nums">
+                {String(i + 8).padStart(2, '0')}
+              </span>
+              <span class="font-display font-bold text-charcoal-muted group-hover:text-charcoal uppercase text-xs tracking-widest transition-colors duration-150">
+                {s.title}
+              </span>
+              <svg class="w-3 h-3 ml-auto opacity-0 group-hover:opacity-50 transition-opacity shrink-0 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <!-- Mobile menu -->
   <div id="mobile-menu" class="hidden md:hidden border-t border-cream-dark bg-cream-light">
-    <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-5">
-      <a href={`${base}/#services`} class="font-display text-xs font-semibold uppercase tracking-widest text-charcoal-muted hover:text-charcoal transition-colors">{t('nav.services')}</a>
-      <a href={`${base}/#about`} class="font-display text-xs font-semibold uppercase tracking-widest text-charcoal-muted hover:text-charcoal transition-colors">{t('nav.about')}</a>
-      <a href={`${base}/#booking`} class="bg-charcoal text-cream font-display text-xs font-semibold uppercase tracking-widest px-5 py-3 text-center hover:bg-charcoal-light transition-colors mt-2">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col">
+
+      <!-- Services accordion -->
+      <button
+        id="mobile-services-toggle"
+        class="flex items-center justify-between w-full font-display text-xs font-semibold uppercase tracking-widest text-charcoal-muted hover:text-charcoal transition-colors py-4 border-b border-cream-dark"
+      >
+        {t('nav.services')}
+        <svg id="mobile-services-chevron" class="w-3 h-3 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      <div id="mobile-services-list" class="hidden border-b border-cream-dark">
+        {servicesData.map((s, i) => (
+          <a
+            href={`/en/services/${s.slug}`}
+            class="flex items-center gap-3 py-2.5 pl-4 text-charcoal-muted hover:text-charcoal transition-colors no-underline"
+          >
+            <span class="font-display font-light text-charcoal/30 text-xs w-5 shrink-0 tabular-nums">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <span class="font-display font-bold uppercase text-xs tracking-widest">{s.title}</span>
+          </a>
+        ))}
+      </div>
+
+      <a href={`${base}/#about`} class="font-display text-xs font-semibold uppercase tracking-widest text-charcoal-muted hover:text-charcoal transition-colors py-4 border-b border-cream-dark">
+        {t('nav.about')}
+      </a>
+
+      <a href="/en/news/" class="font-display text-xs font-semibold uppercase tracking-widest text-charcoal-muted hover:text-charcoal transition-colors py-4 border-b border-cream-dark whitespace-nowrap">
+        {t('nav.insights')}
+      </a>
+
+      <div class="flex items-center border border-cream-dark self-start my-4">
+        <a href="/en/" class={`font-display text-xs font-semibold uppercase tracking-widest px-3 py-2 transition-colors ${lang === 'en' ? 'bg-charcoal text-cream' : 'text-charcoal-muted hover:text-charcoal'}`}>EN</a>
+        <a href="/ka/" class={`font-display text-xs font-semibold uppercase tracking-widest px-3 py-2 transition-colors ${lang === 'ka' ? 'bg-charcoal text-cream' : 'text-charcoal-muted hover:text-charcoal'}`}>KA</a>
+      </div>
+
+      <a href={`${base}/#booking`} class="bg-charcoal text-cream font-display text-xs font-semibold uppercase tracking-widest px-5 py-3 text-center hover:bg-charcoal-light transition-colors">
         {t('nav.book')}
       </a>
     </div>
@@ -63,24 +176,85 @@ const base = `/${lang}`;
 </header>
 
 <script>
+  // ── Mobile main menu ──────────────────────────────────
   const toggle = document.getElementById('menu-toggle');
-  const menu = document.getElementById('mobile-menu');
+  const mobileMenu = document.getElementById('mobile-menu');
   const iconOpen = document.getElementById('menu-icon-open');
   const iconClose = document.getElementById('menu-icon-close');
 
   toggle?.addEventListener('click', () => {
-    const isHidden = menu?.classList.contains('hidden');
-    menu?.classList.toggle('hidden');
-    iconOpen?.classList.toggle('hidden', !isHidden);
-    iconClose?.classList.toggle('hidden', isHidden);
-    toggle.setAttribute('aria-expanded', String(isHidden));
+    const hidden = mobileMenu?.classList.contains('hidden');
+    mobileMenu?.classList.toggle('hidden');
+    iconOpen?.classList.toggle('hidden', !hidden);
+    iconClose?.classList.toggle('hidden', hidden);
+    toggle.setAttribute('aria-expanded', String(hidden));
   });
 
-  menu?.querySelectorAll('a').forEach(link => {
+  mobileMenu?.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
-      menu.classList.add('hidden');
+      mobileMenu.classList.add('hidden');
       iconOpen?.classList.remove('hidden');
       iconClose?.classList.add('hidden');
     });
+  });
+
+  // ── Mobile services accordion ─────────────────────────
+  const mobileServicesToggle = document.getElementById('mobile-services-toggle');
+  const mobileServicesList = document.getElementById('mobile-services-list');
+  const mobileServicesChevron = document.getElementById('mobile-services-chevron');
+
+  mobileServicesToggle?.addEventListener('click', () => {
+    const hidden = mobileServicesList?.classList.contains('hidden');
+    mobileServicesList?.classList.toggle('hidden');
+    mobileServicesChevron?.classList.toggle('rotate-180', !!hidden);
+  });
+
+  // ── Desktop services mega-menu ────────────────────────
+  const trigger = document.getElementById('services-trigger');
+  const dropdown = document.getElementById('services-dropdown');
+  const chevron = document.getElementById('services-chevron');
+
+  let hideTimer: ReturnType<typeof setTimeout>;
+
+  function openMenu() {
+    clearTimeout(hideTimer);
+    dropdown?.classList.remove('hidden');
+    trigger?.setAttribute('aria-expanded', 'true');
+    chevron?.classList.add('rotate-180');
+  }
+
+  function scheduleClose() {
+    hideTimer = setTimeout(() => {
+      dropdown?.classList.add('hidden');
+      trigger?.setAttribute('aria-expanded', 'false');
+      chevron?.classList.remove('rotate-180');
+    }, 120);
+  }
+
+  trigger?.addEventListener('mouseenter', openMenu);
+  trigger?.addEventListener('mouseleave', scheduleClose);
+  dropdown?.addEventListener('mouseenter', () => clearTimeout(hideTimer));
+  dropdown?.addEventListener('mouseleave', scheduleClose);
+
+  // Click toggle (keyboard/touch fallback)
+  trigger?.addEventListener('click', () => {
+    if (dropdown?.classList.contains('hidden')) {
+      openMenu();
+    } else {
+      clearTimeout(hideTimer);
+      dropdown?.classList.add('hidden');
+      trigger?.setAttribute('aria-expanded', 'false');
+      chevron?.classList.remove('rotate-180');
+    }
+  });
+
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (!trigger?.contains(e.target as Node) && !dropdown?.contains(e.target as Node)) {
+      clearTimeout(hideTimer);
+      dropdown?.classList.add('hidden');
+      trigger?.setAttribute('aria-expanded', 'false');
+      chevron?.classList.remove('rotate-180');
+    }
   });
 </script>

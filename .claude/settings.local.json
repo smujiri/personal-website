@@ -6,7 +6,23 @@
       "Bash(npm run *)",
       "Bash(magick \"Sophio Mujiri.pdf[0]\" -density 200 card_preview.png)",
       "Bash(python -c ' *)",
-      "PowerShell(Copy-Item *)"
+      "PowerShell(Copy-Item *)",
+      "Bash(python3 -c ' *)",
+      "Bash(python *)",
+      "Bash(node -e \"const p = require\\('./node_modules/@astrojs/sitemap/package.json'\\); console.log\\(p.version\\)\")",
+      "Bash(node -e \"const fs = require\\('fs'\\); const lines = fs.readFileSync\\('./node_modules/@astrojs/sitemap/dist/index.js', 'utf8'\\).split\\('\\\\n'\\); console.log\\(lines.slice\\(80, 95\\).join\\('\\\\n'\\)\\)\")",
+      "Bash(npm show *)",
+      "Bash(node -e \"const fs = require\\('fs'\\); const lines = fs.readFileSync\\('./node_modules/@astrojs/sitemap/dist/index.js', 'utf8'\\).split\\('\\\\n'\\); console.log\\(lines.slice\\(55, 90\\).join\\('\\\\n'\\)\\)\")",
+      "Bash(node -e \"const fs = require\\('fs'\\); const txt = fs.readFileSync\\('./node_modules/@astrojs/sitemap/dist/index.js', 'utf8'\\); const idx = txt.indexOf\\('_routes'\\); console.log\\(txt.substring\\(Math.max\\(0,idx-200\\), idx+100\\)\\)\")",
+      "Bash(node -e \"console.log\\(require\\('./node_modules/astro/package.json'\\).version\\)\")",
+      "Bash(git remote *)",
+      "Bash(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\sandr\\\\Desktop\\\\deda-website\\\\src\\\\content\\\\blog\")",
+      "Bash(Out-Null)",
+      "Bash(New-Item -ItemType File -Force \"C:\\\\Users\\\\sandr\\\\Desktop\\\\deda-website\\\\src\\\\content\\\\blog\\\\.gitkeep\")",
+      "Bash(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\sandr\\\\Desktop\\\\deda-website\\\\public\\\\uploads\")",
+      "Bash(New-Item -ItemType File -Force \"C:\\\\Users\\\\sandr\\\\Desktop\\\\deda-website\\\\public\\\\uploads\\\\.gitkeep\")",
+      "PowerShell(New-Item *)",
+      "Bash(git add *)"
     ]
   }
 }

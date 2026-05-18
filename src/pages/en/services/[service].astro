@@ -1,0 +1,103 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { servicesData } from '../../../data/services';
+
+export function getStaticPaths() {
+  return servicesData.map(service => ({
+    params: { service: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const lang = 'en';
+---
+
+<Layout lang={lang} title={service.seoTitle} description={service.seoDescription}>
+
+  <!-- Hero -->
+  <section class="bg-charcoal text-cream">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-10 pb-6">
+      <a
+        href="/en/#services"
+        class="inline-flex items-center gap-2 font-display text-xs font-semibold uppercase tracking-widest text-white/35 hover:text-white/70 transition-colors duration-200 mb-12"
+      >
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+        </svg>
+        All Services
+      </a>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 pb-20 border-b border-white/10">
+      <p class="font-display text-xs font-semibold uppercase tracking-widest text-white/30 mb-5">Practice Area</p>
+      <h1 class="font-display font-black text-white uppercase text-4xl sm:text-5xl lg:text-6xl leading-none tracking-tight mb-5">
+        {service.title}
+      </h1>
+      {service.tagline && (
+        <p class="font-display font-medium text-white/40 uppercase tracking-widest text-sm">
+          {service.tagline}
+        </p>
+      )}
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="bg-cream-light">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20">
+      <div class="max-w-3xl">
+
+        <!-- Intro -->
+        <p class="text-charcoal text-base sm:text-lg leading-relaxed font-light mb-16 pb-16 border-b border-cream-dark">
+          {service.intro}
+        </p>
+
+        <!-- Sections -->
+        <div class="space-y-12">
+          {service.sections.map(section => (
+            <div>
+              <h2 class="font-display font-bold text-charcoal uppercase text-xs tracking-widest mb-5 pb-3 border-b border-cream-dark">
+                {section.heading}
+              </h2>
+              <ul class="space-y-3">
+                {section.items.map(item => (
+                  <li class="flex items-start gap-3 text-charcoal-muted text-sm leading-relaxed">
+                    <span class="font-display font-bold text-charcoal shrink-0 mt-px select-none">—</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <!-- Outro -->
+        <div class="mt-16 pt-10 border-t border-cream-dark">
+          <p class="font-display font-semibold text-charcoal text-sm sm:text-base leading-relaxed">
+            {service.outro}
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-charcoal py-24">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <p class="font-display text-xs font-semibold uppercase tracking-widest text-white/30 mb-5">Ready to start?</p>
+      <h2 class="font-display font-black text-white uppercase text-3xl sm:text-4xl leading-none tracking-tight mb-10">
+        Book a Consultation
+      </h2>
+      <a
+        href="/en/#booking"
+        class="inline-flex items-center gap-3 bg-white text-charcoal font-display font-bold text-xs uppercase tracking-widest px-8 py-4 hover:bg-cream transition-colors duration-200"
+      >
+        Schedule Now
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+</Layout>
