@@ -22,7 +22,11 @@
       "Bash(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\sandr\\\\Desktop\\\\deda-website\\\\public\\\\uploads\")",
       "Bash(New-Item -ItemType File -Force \"C:\\\\Users\\\\sandr\\\\Desktop\\\\deda-website\\\\public\\\\uploads\\\\.gitkeep\")",
       "PowerShell(New-Item *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git fetch *)",
+      "Bash(git pull *)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
     ]
   }
 }

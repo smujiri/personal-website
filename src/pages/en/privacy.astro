@@ -1,3 +1,305 @@
 ---
-return Astro.redirect('/privacy', 301);
+import Layout from '../../layouts/Layout.astro';
 ---
+
+<Layout
+  lang="en"
+  title="Privacy Policy — SM Consulting"
+  description="How SM Consulting collects, uses, and protects your personal data in accordance with GDPR and the Personal Data Protection Law of Georgia."
+>
+
+  <!-- Hero -->
+  <section class="bg-charcoal text-cream">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 pt-10 pb-6">
+      <a
+        href="/en/"
+        class="inline-flex items-center gap-2 font-display text-xs font-semibold uppercase tracking-widest text-white/35 hover:text-white/70 transition-colors duration-200 mb-12"
+      >
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+        </svg>
+        Back to Home
+      </a>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 pb-20 border-b border-white/10">
+      <p class="font-display text-xs font-semibold uppercase tracking-widest text-white/30 mb-5">Legal</p>
+      <h1 class="font-display font-black text-white uppercase text-3xl sm:text-4xl lg:text-5xl leading-none tracking-tight mb-6">
+        Privacy Policy
+      </h1>
+      <p class="text-white/45 text-base font-light leading-relaxed max-w-2xl">
+        How we collect, use, and protect your personal data — in accordance with the EU General Data Protection Regulation (GDPR) and the Personal Data Protection Law of Georgia.
+      </p>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="bg-cream-light">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20">
+      <div class="max-w-3xl">
+
+        <p class="font-display text-xs font-medium uppercase tracking-widest text-charcoal/35 mb-16">
+          Last updated: 18 May 2025
+        </p>
+
+        <div class="prose prose-sm prose-neutral max-w-none
+          prose-headings:font-display prose-headings:font-bold prose-headings:uppercase prose-headings:tracking-tight prose-headings:text-charcoal
+          prose-h2:text-xl prose-h2:mt-14 prose-h2:mb-4 prose-h2:pb-3 prose-h2:border-b prose-h2:border-cream-dark
+          prose-h3:text-xs prose-h3:tracking-widest prose-h3:mt-8 prose-h3:mb-3 prose-h3:text-charcoal/60
+          prose-p:text-charcoal-muted prose-p:leading-relaxed prose-p:font-light
+          prose-a:text-charcoal prose-a:font-semibold prose-a:underline-offset-4 prose-a:no-underline hover:prose-a:underline
+          prose-strong:text-charcoal prose-strong:font-semibold
+          prose-ul:text-charcoal-muted prose-li:leading-relaxed prose-li:font-light
+          prose-table:text-xs prose-thead:font-display prose-th:text-charcoal/50 prose-th:font-semibold prose-th:uppercase prose-th:tracking-widest
+          prose-td:text-charcoal-muted prose-td:font-light prose-td:align-top">
+
+          <h2>1. Who We Are</h2>
+          <p>
+            This website is operated by <strong>SM Consulting</strong>, an intellectual property and business law consultancy based in Tbilisi, Georgia, led by Sophio Mujiri, Patent Attorney and Attorney at Law.
+          </p>
+          <p><strong>Data Controller:</strong><br />
+            Sophio Mujiri — SM Consulting<br />
+            Zurab Avalishvili 13, Block B, 0179 Tbilisi, Georgia<br />
+            Email: <a href="mailto:info@mujiri.ge">info@mujiri.ge</a><br />
+            Phone: <a href="https://wa.me/995555955550">+995 555 955550</a>
+          </p>
+
+          <h2>2. Scope of This Policy</h2>
+          <p>
+            This Privacy Policy applies to all visitors to <strong>www.mujiri.ge</strong> and explains what personal data we collect, on what legal basis, how we use and protect it, how long we keep it, and what rights you have.
+          </p>
+          <p>We are committed to protecting your personal data in accordance with:</p>
+          <ul>
+            <li><strong>Regulation (EU) 2016/679</strong> (the General Data Protection Regulation, "GDPR") — which governs our processing of data relating to individuals located in the European Economic Area (EEA) or United Kingdom.</li>
+            <li><strong>The Personal Data Protection Law of Georgia</strong> (Law No. 5669, as amended) — which applies to all processing carried out from our Georgia-based operations.</li>
+          </ul>
+
+          <h2>3. Data We Collect and Why</h2>
+
+          <h3>a) Consultation Bookings</h3>
+          <p>
+            When you book a consultation via our website you are directed to a scheduling tool operated by Cal.com. You will provide your name, email address, preferred appointment time, and any notes you choose to include.
+          </p>
+          <p>
+            <strong>Purpose:</strong> Scheduling, confirming, and conducting consultations.<br />
+            <strong>Legal basis:</strong> Performance of a pre-contractual or contractual relationship (Art. 6(1)(b) GDPR); legitimate interests under Georgian law.
+          </p>
+
+          <h3>b) Direct Email Enquiries</h3>
+          <p>
+            If you contact us at <a href="mailto:info@mujiri.ge">info@mujiri.ge</a>, we process your name, email address, and the content of your message.
+          </p>
+          <p>
+            <strong>Purpose:</strong> Responding to your enquiry.<br />
+            <strong>Legal basis:</strong> Our legitimate interest in responding to communications (Art. 6(1)(f) GDPR).
+          </p>
+
+          <h3>c) Server and Technical Log Data</h3>
+          <p>
+            Our hosting provider (Vercel Inc.) automatically records technical data for each web request, including IP address, browser type and version, operating system, pages accessed, time of access, and HTTP referrer.
+          </p>
+          <p>
+            <strong>Purpose:</strong> Website security, performance monitoring, and error diagnosis.<br />
+            <strong>Legal basis:</strong> Our legitimate interest in maintaining a secure and functional website (Art. 6(1)(f) GDPR).<br />
+            <strong>Retention:</strong> Vercel retains server logs for up to 30 days.
+          </p>
+
+          <h3>d) Google Fonts CDN</h3>
+          <p>
+            This website loads typefaces from Google Fonts, a content delivery network operated by Google LLC. When your browser requests these font files, your IP address is transmitted to Google's servers as part of the standard HTTP request.
+          </p>
+          <p>
+            <strong>Purpose:</strong> Displaying the website in the intended typeface.<br />
+            <strong>Legal basis:</strong> Our legitimate interest in delivering a professionally presented website (Art. 6(1)(f) GDPR).<br />
+            <strong>Transfer safeguard:</strong> Google LLC is certified under the EU–US Data Privacy Framework.
+          </p>
+
+          <h3>e) Cookie Consent Preference</h3>
+          <p>
+            We store a record of your cookie consent decision in your browser's local storage. This record is not transmitted to our servers and is used solely to avoid repeating the consent prompt on return visits.
+          </p>
+          <p>
+            <strong>Purpose:</strong> Respecting and remembering your privacy preferences.<br />
+            <strong>Legal basis:</strong> Our legitimate interest in complying with applicable privacy law (Art. 6(1)(f) GDPR).
+          </p>
+
+          <h2>4. Cookies and Browser Storage</h2>
+          <p>We use a minimal number of cookies and browser storage entries:</p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Purpose</th>
+                <th>Duration</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>cookie-consent</code></td>
+                <td>Local storage</td>
+                <td>Records your cookie consent choice (accepted / declined)</td>
+                <td>Until browser data is cleared</td>
+              </tr>
+              <tr>
+                <td><code>sm_auth</code></td>
+                <td>HttpOnly cookie</td>
+                <td>Temporary site-access authentication (will be removed at public launch)</td>
+                <td>7 days</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>
+            We do not use tracking, advertising, or third-party analytics cookies. Should analytics tools be introduced in the future, they will only be activated with your explicit prior consent.
+          </p>
+
+          <h2>5. Third-Party Data Processors</h2>
+          <p>
+            We share personal data only with the processors listed below, who act strictly on our instructions under binding data processing agreements:
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Processor</th>
+                <th>Purpose</th>
+                <th>Location</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Cal.com (Calcom, Inc.)</strong></td>
+                <td>Consultation scheduling</td>
+                <td>United States</td>
+              </tr>
+              <tr>
+                <td><strong>Vercel Inc.</strong></td>
+                <td>Website hosting and global content delivery</td>
+                <td>United States / Global edge network</td>
+              </tr>
+              <tr>
+                <td><strong>Google LLC</strong></td>
+                <td>Font delivery (Google Fonts CDN)</td>
+                <td>United States</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>
+            No personal data is sold, rented, or otherwise disclosed to any other third party without your explicit consent, except where required by law or a binding court order, in which case we will notify you to the extent permitted by law.
+          </p>
+
+          <h2>6. International Data Transfers</h2>
+          <p>
+            Some processors listed above are based in or transfer data to the United States. We ensure appropriate safeguards are in place for such transfers:
+          </p>
+          <ul>
+            <li><strong>Vercel Inc.</strong> — Standard Contractual Clauses (SCCs) as approved by the European Commission.</li>
+            <li><strong>Google LLC</strong> — Certified under the EU–US Data Privacy Framework.</li>
+            <li><strong>Cal.com</strong> — GDPR-compliant Data Processing Agreement; optional EU data residency.</li>
+          </ul>
+          <p>
+            You may request a copy of the applicable safeguards by contacting us at <a href="mailto:info@mujiri.ge">info@mujiri.ge</a>.
+          </p>
+
+          <h2>7. Data Retention</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Retention Period</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Booking and consultation records</td>
+                <td>3 years from last interaction, or as required by applicable professional regulations</td>
+              </tr>
+              <tr>
+                <td>Email correspondence</td>
+                <td>2 years from last interaction</td>
+              </tr>
+              <tr>
+                <td>Server logs (Vercel)</td>
+                <td>Up to 30 days</td>
+              </tr>
+              <tr>
+                <td>Consent preference (local storage)</td>
+                <td>Until you clear your browser data</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            Data is securely deleted or irreversibly anonymised once it is no longer required for the purposes described above.
+          </p>
+
+          <h2>8. Your Rights</h2>
+          <p>
+            Under the GDPR and Georgian data protection law, you have the following rights regarding your personal data. These rights are not absolute and may be subject to legal limitations, but we will always respond to your request and explain our reasoning.
+          </p>
+          <ul>
+            <li><strong>Right of access (Art. 15 GDPR):</strong> Request a copy of the personal data we hold about you.</li>
+            <li><strong>Right to rectification (Art. 16 GDPR):</strong> Ask us to correct inaccurate or incomplete data.</li>
+            <li><strong>Right to erasure (Art. 17 GDPR):</strong> Request deletion of your data where it is no longer necessary, or where you withdraw consent.</li>
+            <li><strong>Right to restriction of processing (Art. 18 GDPR):</strong> Ask us to pause processing your data in certain circumstances.</li>
+            <li><strong>Right to data portability (Art. 20 GDPR):</strong> Receive your data in a structured, machine-readable format for transfer to another controller.</li>
+            <li><strong>Right to object (Art. 21 GDPR):</strong> Object to processing carried out on the basis of legitimate interests, including direct marketing.</li>
+            <li><strong>Right to withdraw consent:</strong> Where processing is based on your consent, you may withdraw it at any time without affecting the lawfulness of prior processing.</li>
+            <li><strong>Right not to be subject to automated decision-making:</strong> We do not engage in any automated decision-making or profiling.</li>
+          </ul>
+          <p>
+            To exercise any of these rights, please contact <a href="mailto:info@mujiri.ge">info@mujiri.ge</a>. We will respond within 30 days of receipt. We may request proof of identity to protect against unauthorised access.
+          </p>
+
+          <h2>9. Right to Lodge a Complaint</h2>
+          <p>If you believe your data protection rights have been violated, you have the right to lodge a complaint with a supervisory authority:</p>
+          <ul>
+            <li><strong>Georgia:</strong> Personal Data Protection Service of Georgia — <a href="https://pdp.gov.ge" target="_blank" rel="noopener noreferrer">pdp.gov.ge</a></li>
+            <li><strong>European Economic Area:</strong> Your national Data Protection Authority — see the full list at <a href="https://edpb.europa.eu/about-edpb/about-edpb/members_en" target="_blank" rel="noopener noreferrer">edpb.europa.eu</a></li>
+            <li><strong>United Kingdom:</strong> Information Commissioner's Office — <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a></li>
+          </ul>
+          <p>We would, however, appreciate the opportunity to address your concerns directly before you contact a supervisory authority.</p>
+
+          <h2>10. Security</h2>
+          <p>
+            We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, disclosure, alteration, or destruction. All data in transit is encrypted using TLS (HTTPS). Access to systems containing personal data is restricted to authorised personnel only.
+          </p>
+          <p>
+            No method of electronic transmission or storage is completely secure. In the event of a data breach likely to result in a risk to your rights and freedoms, we will notify the relevant supervisory authority within 72 hours, and affected individuals without undue delay, in accordance with applicable law.
+          </p>
+
+          <h2>11. Children's Privacy</h2>
+          <p>
+            This website is not directed at children under 16 years of age. We do not knowingly collect personal data from minors. If you have reason to believe that a child has submitted personal data to us, please contact <a href="mailto:info@mujiri.ge">info@mujiri.ge</a> and we will promptly delete the information.
+          </p>
+
+          <h2>12. Changes to This Policy</h2>
+          <p>
+            We may update this Privacy Policy from time to time to reflect changes in our practices, the services we use, or applicable law. The "Last updated" date at the top of this page will indicate when the most recent revision was made. For material changes, we will take reasonable steps to notify you — for example, by adding a notice to this page. We encourage you to review this policy periodically.
+          </p>
+
+          <h2>13. Contact</h2>
+          <p>
+            For questions, requests, or concerns regarding this Privacy Policy or your personal data:
+          </p>
+          <p>
+            <strong>SM Consulting — Sophio Mujiri</strong><br />
+            Zurab Avalishvili 13, Block B, 0179 Tbilisi, Georgia<br />
+            <a href="mailto:info@mujiri.ge">info@mujiri.ge</a><br />
+            <a href="https://wa.me/995555955550">+995 555 955550</a>
+          </p>
+
+        </div>
+
+        <div class="mt-14 pt-8 border-t border-cream-dark">
+          <p class="font-display text-xs font-medium uppercase tracking-widest text-charcoal/35">
+            SM Consulting · Privacy Policy · Last updated 18 May 2025
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</Layout>
