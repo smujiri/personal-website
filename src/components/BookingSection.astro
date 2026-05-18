@@ -13,21 +13,19 @@ const t = useTranslations(lang);
 <section id="booking" class="py-28 bg-cream-light border-t border-cream-dark">
   <div class="max-w-7xl mx-auto px-6 lg:px-10">
 
-    <!-- Section header -->
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16 pb-8 border-b border-cream-dark">
-      <div>
+    <!-- Centred column: header + enquiry form -->
+    <div class="max-w-2xl mx-auto mb-16">
+
+      <!-- Section header -->
+      <div class="mb-12 pb-8 border-b border-cream-dark">
         <p class="label mb-3">{t('nav.book')}</p>
-        <h2 class="font-display font-black text-charcoal uppercase text-4xl sm:text-5xl leading-none tracking-tight">
+        <h2 class="font-display font-black text-charcoal uppercase text-4xl sm:text-5xl leading-none tracking-tight mb-4">
           {t('booking.title')}
         </h2>
+        <p class="text-charcoal-muted text-sm leading-relaxed font-light">
+          {t('booking.subtitle')}
+        </p>
       </div>
-      <p class="text-charcoal-muted text-sm leading-relaxed max-w-xs font-light">
-        {t('booking.subtitle')}
-      </p>
-    </div>
-
-    <!-- Contact form -->
-    <div class="max-w-2xl mb-16">
       <p class="font-display text-xs font-semibold uppercase tracking-widest text-charcoal/40 mb-8">
         Send an enquiry
       </p>
@@ -105,7 +103,7 @@ const t = useTranslations(lang);
           <p id="cf-status" class="font-display text-xs tracking-wide hidden"></p>
         </div>
       </form>
-    </div>
+    </div><!-- end centred column -->
 
     <!-- Divider -->
     <div class="flex items-center gap-6 mb-16">
