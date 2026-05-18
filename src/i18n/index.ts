@@ -71,7 +71,7 @@ export const ui = {
     'leadmagnet.success': 'Your guide is on its way — check your inbox.',
     'leadmagnet.privacy': 'No spam. Unsubscribe at any time.',
     'booking.title': 'Schedule Your Consultation',
-    'booking.subtitle': 'Select a time that works for you. Available for 15-minute discovery calls and 60-minute consulting sessions.',
+    'booking.subtitle': 'Select a time that works for you. Book a free 15-minute discovery call to discuss your needs.',
     'footer.tagline': 'Patent Attorney · Attorney at Law · IP Consultant',
     'footer.nav.title': 'Navigation',
     'footer.legal.title': 'Legal',

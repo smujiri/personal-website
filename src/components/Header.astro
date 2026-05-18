@@ -46,12 +46,6 @@ const col2 = servicesData.slice(7);
         {t('nav.insights')}
       </a>
 
-      <!-- Language switcher -->
-      <div class="flex items-center border border-cream-dark">
-        <a href="/en/" class={`font-display text-xs font-semibold uppercase tracking-widest px-2.5 py-1.5 transition-colors ${lang === 'en' ? 'bg-charcoal text-cream' : 'text-charcoal-muted hover:text-charcoal'}`}>EN</a>
-        <a href="/ka/" class={`font-display text-xs font-semibold uppercase tracking-widest px-2.5 py-1.5 transition-colors ${lang === 'ka' ? 'bg-charcoal text-cream' : 'text-charcoal-muted hover:text-charcoal'}`}>KA</a>
-      </div>
-
       <a
         href={`${base}/#booking`}
         class="bg-charcoal text-cream font-display text-xs font-semibold uppercase tracking-widest px-5 py-2.5 hover:bg-charcoal-light transition-colors whitespace-nowrap"
@@ -162,11 +156,6 @@ const col2 = servicesData.slice(7);
       <a href="/en/news/" class="font-display text-xs font-semibold uppercase tracking-widest text-charcoal-muted hover:text-charcoal transition-colors py-4 border-b border-cream-dark whitespace-nowrap">
         {t('nav.insights')}
       </a>
-
-      <div class="flex items-center border border-cream-dark self-start my-4">
-        <a href="/en/" class={`font-display text-xs font-semibold uppercase tracking-widest px-3 py-2 transition-colors ${lang === 'en' ? 'bg-charcoal text-cream' : 'text-charcoal-muted hover:text-charcoal'}`}>EN</a>
-        <a href="/ka/" class={`font-display text-xs font-semibold uppercase tracking-widest px-3 py-2 transition-colors ${lang === 'ka' ? 'bg-charcoal text-cream' : 'text-charcoal-muted hover:text-charcoal'}`}>KA</a>
-      </div>
 
       <a href={`${base}/#booking`} class="bg-charcoal text-cream font-display text-xs font-semibold uppercase tracking-widest px-5 py-3 text-center hover:bg-charcoal-light transition-colors">
         {t('nav.book')}

@@ -62,7 +62,8 @@ const stats = [
         <div class="flex items-center justify-between">
           <div>
             <p class="font-display font-bold text-white text-sm uppercase tracking-wide">Sophio Mujiri</p>
-            <p class="font-display text-white/40 text-xs uppercase tracking-widest mt-1">Managing Partner</p>
+            <p class="font-display text-white/40 text-xs uppercase tracking-widest mt-1">Founder & Managing Partner</p>
+            <p class="font-display text-white/25 text-xs uppercase tracking-widest mt-0.5">Patent & Trademark Attorney</p>
           </div>
           <a
             href="https://www.linkedin.com/in/sophio-mujiri/"
@@ -77,19 +78,6 @@ const stats = [
           </a>
         </div>
 
-        <!-- Credentials list -->
-        <ul class="divide-y divide-white/10">
-          {credentials.map((key, i) => (
-            <li class="flex items-center gap-4 py-3.5">
-              <span class="font-display font-light text-white/25 text-xs tracking-widest w-6 shrink-0 tabular-nums">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <span class="font-display font-semibold text-white/70 text-xs uppercase tracking-widest">
-                {t(key)}
-              </span>
-            </li>
-          ))}
-        </ul>
       </div>
     </div>
 
