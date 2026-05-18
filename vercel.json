@@ -2,8 +2,5 @@
   "framework": "astro",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "installCommand": "npm install",
-  "redirects": [
-    { "source": "/", "destination": "/en/", "permanent": true }
-  ]
+  "installCommand": "npm install"
 }
