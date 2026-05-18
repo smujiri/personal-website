@@ -5,7 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
   <title>SM Consulting — Content Manager</title>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </head>
-<body></body>
+<body>
+  <script>window.CMS_MANUAL_INIT = true;</script>
+  <script src="https://unpkg.com/decap-cms@3.3.3/dist/decap-cms.js"></script>
+  <script>
+    CMS.init({
+      config: {
+        backend: {
+          name: 'github',
+          repo: 'smujiri/personal-website',
+          branch: 'main',
+          base_url: 'https://mujiri.ge',
+          auth_endpoint: '/api/auth',
+        },
+        media_folder: 'public/uploads',
+        public_folder: '/uploads',
+        locale: 'en',
+        collections: [
+          {
+            name: 'blog',
+            label: 'News & Insights',
+            label_singular: 'Post',
+            folder: 'src/content/blog',
+            create: true,
+            slug: '{{year}}-{{month}}-{{day}}-{{slug}}',
+            fields: [
+              { label: 'Title', name: 'title', widget: 'string' },
+              {
+                label: 'Short Description',
+                name: 'description',
+                widget: 'string',
+                hint: 'Shown on the listing page and in search results (1–2 sentences)',
+              },
+              { label: 'Publication Date', name: 'pubDate', widget: 'datetime' },
+              {
+                label: 'Tags',
+                name: 'tags',
+                widget: 'list',
+                required: false,
+                hint: 'e.g. Trademarks, Patent Law, IP Strategy',
+              },
+              { label: 'Article', name: 'body', widget: 'markdown' },
+            ],
+          },
+        ],
+      },
+    });
+  </script>
+</body>
 </html>
