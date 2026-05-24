@@ -7,16 +7,16 @@ export default {
     extend: {
       colors: {
         cream: {
-          DEFAULT: '#EEE9E1',
-          light: '#F9F7F4',
-          dark: '#E2DDD6',
+          DEFAULT: '#DCE9F7',
+          light: '#EFF5FD',
+          dark: '#C4D6EC',
         },
         charcoal: {
-          DEFAULT: '#1C1A17',
-          light: '#2D2B28',
-          muted: '#8A8278',
+          DEFAULT: '#1A3260',
+          light: '#2B4D86',
+          muted: '#6680A8',
         },
-        silver: '#B0AA9F',
+        silver: '#8aaec7',
         gold: {
           DEFAULT: '#c9a84c',
           light: '#d4b96a',
