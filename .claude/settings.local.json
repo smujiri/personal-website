@@ -26,7 +26,10 @@
       "Bash(git fetch *)",
       "Bash(git pull *)",
       "Bash(git commit *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "WebFetch(domain:css-pattern.com)",
+      "WebFetch(domain:pattern.monster)",
+      "WebFetch(domain:www.heropatterns.com)"
     ]
   }
 }
