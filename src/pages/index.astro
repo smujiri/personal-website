@@ -1,3 +1,179 @@
 ---
-return Astro.redirect('/en/', 302);
+// Gate page — shown to unauthenticated visitors
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>SM Consulting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Outfit', system-ui, sans-serif;
+      background: #1C1A17;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .gate {
+      width: 100%;
+      max-width: 22rem;
+      text-align: center;
+    }
+
+    .logo-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+
+    .logo-suffix {
+      font-weight: 300;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .logo-sub {
+      margin-top: 0.4rem;
+      font-size: 0.625rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.18);
+    }
+
+    .divider {
+      width: 2.5rem;
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+      margin: 2.5rem auto;
+    }
+
+    .label {
+      font-size: 0.625rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 0.4rem;
+    }
+
+    .hint {
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.18);
+      margin-bottom: 2rem;
+    }
+
+    .pw-input {
+      width: 100%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.875rem;
+      padding: 0.75rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+      margin-bottom: 0.75rem;
+    }
+
+    .pw-input::placeholder { color: rgba(255,255,255,0.18); }
+    .pw-input:focus { border-color: rgba(255,255,255,0.28); }
+
+    .btn {
+      width: 100%;
+      background: rgba(255,255,255,0.08);
+      border: none;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.625rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 0.8rem 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn:hover { background: rgba(255,255,255,0.14); }
+
+    .error {
+      display: none;
+      margin-top: 1rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.05em;
+      color: rgba(239, 100, 100, 0.7);
+    }
+
+    .error.visible { display: block; }
+  </style>
+</head>
+<body>
+  <div class="gate">
+    <div class="logo-name">
+      SM <span class="logo-suffix">CONSULTING</span>
+    </div>
+    <div class="logo-sub">IP &amp; Patent Law · Tbilisi, Georgia</div>
+
+    <div class="divider"></div>
+
+    <p class="label">Under Construction</p>
+    <p class="hint">Enter password to preview the site</p>
+
+    <form id="gate-form">
+      <input
+        id="pw-input"
+        class="pw-input"
+        type="password"
+        placeholder="Password"
+        autocomplete="current-password"
+      />
+      <button type="submit" class="btn">Enter</button>
+    </form>
+
+    <p id="gate-error" class="error">Incorrect password — please try again.</p>
+  </div>
+
+  <script>
+    const form = document.getElementById('gate-form');
+    const input = document.getElementById('pw-input');
+    const errEl = document.getElementById('gate-error');
+
+    input.focus();
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errEl.classList.remove('visible');
+
+      const password = input.value.trim();
+      if (!password) return;
+
+      try {
+        const res = await fetch('/api/unlock', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password }),
+        });
+
+        if (res.ok) {
+          window.location.href = '/en/';
+        } else {
+          errEl.classList.add('visible');
+          input.value = '';
+          input.focus();
+        }
+      } catch {
+        errEl.classList.add('visible');
+      }
+    });
+  </script>
+</body>
+</html>
