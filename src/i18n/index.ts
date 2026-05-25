@@ -78,7 +78,7 @@ export const ui = {
     'footer.privacy': 'Privacy Policy',
     'footer.terms': 'Terms & Conditions',
     'footer.rights': 'All rights reserved.',
-    'cookie.message': 'We use cookies to enhance your experience and analyze site traffic. By continuing, you consent to our use of cookies in accordance with our',
+    'cookie.message': 'We use cookies, including Google Analytics, to understand how visitors use our site. Accepting enables analytics. For details, see our',
     'cookie.accept': 'Accept All',
     'cookie.decline': 'Decline',
     'meta.title': 'Mujiri IP | Trademark & Patent Attorney Georgia | IP Law Firm',

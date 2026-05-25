@@ -216,6 +216,11 @@ import Layout from '../../layouts/Layout.astro';
                 <td>Font delivery (Google Fonts CDN)</td>
                 <td>United States</td>
               </tr>
+              <tr>
+                <td><strong>Google LLC (Google Analytics 4)</strong></td>
+                <td>Website analytics and traffic measurement (consent-based only)</td>
+                <td>United States</td>
+              </tr>
             </tbody>
           </table>
           <p>
@@ -269,21 +274,27 @@ import Layout from '../../layouts/Layout.astro';
             </thead>
             <tbody>
               <tr>
-                <td><code>sm_auth</code></td>
-                <td>HttpOnly cookie (strictly necessary)</td>
-                <td>Temporary site-access authentication</td>
-                <td>7 days</td>
-              </tr>
-              <tr>
                 <td><code>cookie-consent</code></td>
                 <td>Local storage (preference)</td>
                 <td>Records your cookie consent choice (accepted / declined)</td>
                 <td>Until browser data is cleared</td>
               </tr>
+              <tr>
+                <td><code>_ga</code></td>
+                <td>Analytics cookie (Google Analytics 4)</td>
+                <td>Distinguishes unique users for traffic analysis</td>
+                <td>2 years</td>
+              </tr>
+              <tr>
+                <td><code>_ga_*</code></td>
+                <td>Analytics cookie (Google Analytics 4)</td>
+                <td>Maintains session state for analytics reporting</td>
+                <td>2 years</td>
+              </tr>
             </tbody>
           </table>
           <p>
-            We do not currently use tracking, advertising, or analytics cookies. Should analytics tools be introduced in the future, they will only be activated with your explicit prior consent.
+            Analytics cookies (<code>_ga</code>, <code>_ga_*</code>) are set by Google Analytics 4 and are only activated if you click <strong>Accept</strong> on our cookie banner. If you decline, no analytics cookies are placed and no tracking occurs. You may withdraw consent at any time by clearing your browser's local storage or cookies.
           </p>
 
           <h3>9.2 Managing Cookies</h3>
