@@ -21,6 +21,7 @@ collections:
       - { label: "Title", name: title, widget: string }
       - { label: "Short Description", name: description, widget: string, hint: "Appears on the listing page and in search results (1-2 sentences)" }
       - { label: "Publication Date", name: pubDate, widget: datetime }
+      - { label: "Thumbnail", name: thumbnail, widget: image, required: false, hint: "Cover image shown on the news listing page" }
       - label: "Tags"
         name: tags
         widget: list
