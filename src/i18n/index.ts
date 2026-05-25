@@ -58,7 +58,7 @@ export const ui = {
     'about.years': '20+',
     'about.years.label': 'Years of experience',
     'about.clients': '13',
-    'about.clients.label': 'Areas of practice',
+    'about.clients.label': 'IP Specialisms',
     'about.programs': 'Global',
     'about.programs.label': 'Reach & coverage',
     'testimonials.title': 'What Partners & Clients Say',
