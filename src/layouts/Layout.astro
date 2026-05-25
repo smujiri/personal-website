@@ -93,6 +93,31 @@ const orgSchema = {
       declineText={t('cookie.decline')}
       privacyHref="/en/privacy"
     />
+    <!-- Google Analytics — loads only after cookie consent -->
+    <script>
+      const GA_ID = 'G-11BJ50919E';
+
+      function loadGA() {
+        if ((window as any).__gaLoaded) return;
+        (window as any).__gaLoaded = true;
+        const s = document.createElement('script');
+        s.async = true;
+        s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+        document.head.appendChild(s);
+        (window as any).dataLayer = (window as any).dataLayer || [];
+        function gtag(...args: any[]) { (window as any).dataLayer.push(args); }
+        (window as any).gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', GA_ID);
+      }
+
+      try {
+        if (localStorage.getItem('cookie-consent') === 'accepted') loadGA();
+      } catch { /* */ }
+
+      window.addEventListener('cookie:accepted', loadGA);
+    </script>
+
     <script>
       const observer = new IntersectionObserver(
         (entries) => entries.forEach(e => {
