@@ -1,5 +1,6 @@
 ---
 import { type Lang, useTranslations } from '../i18n/index';
+import HeroMap from './HeroMap.tsx';
 
 interface Props {
   lang: Lang;
@@ -10,59 +11,50 @@ const t = useTranslations(lang);
 const base = `/${lang}`;
 ---
 
-<section class="relative flex flex-col overflow-hidden bg-cream-light" style="min-height: calc(100vh - 4rem)">
+<section class="relative bg-cream-light overflow-hidden" style="min-height: calc(100vh - 4rem)">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-full">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center" style="min-height: calc(100vh - 4rem)">
 
-  <!-- Fine diagonal line pattern -->
-  <div
-    class="absolute inset-0 pointer-events-none"
-    style="background-image: repeating-linear-gradient(45deg, transparent, transparent 28px, rgba(28,26,23,0.04) 28px, rgba(28,26,23,0.04) 29px);"
-    aria-hidden="true"
-  ></div>
+      <!-- Left: text -->
+      <div class="flex flex-col justify-center py-20 lg:py-0 lg:pr-12">
+        <p class="hero-label font-display text-xs font-semibold uppercase tracking-widest2 text-charcoal/45 mb-5">
+          Intellectual Property Advisory
+        </p>
+        <h1 class="hero-heading font-display font-black text-charcoal uppercase leading-none text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mb-6 tracking-tight">
+          {t('hero.headline')}
+        </h1>
+        <p class="hero-sub text-charcoal-muted text-sm sm:text-base max-w-md mb-10 font-light leading-relaxed">
+          {t('hero.subheadline')}
+        </p>
+        <div class="hero-ctas flex flex-col sm:flex-row gap-3">
+          <a
+            href={`${base}/#booking`}
+            class="bg-charcoal text-cream font-display font-bold text-xs uppercase tracking-widest px-8 py-4 hover:bg-charcoal-light transition-colors duration-200 text-center"
+          >
+            {t('hero.cta.primary')}
+          </a>
+          <a
+            href={`${base}/#services`}
+            class="border border-charcoal/25 text-charcoal font-display font-semibold text-xs uppercase tracking-widest px-8 py-4 hover:bg-charcoal/5 transition-colors duration-200 text-center"
+          >
+            {t('hero.cta.secondary')}
+          </a>
+        </div>
 
-  <!-- Content -->
-  <div class="relative flex-1 flex flex-col max-w-7xl mx-auto w-full px-6 lg:px-10 pt-16">
-
-    <!-- Tagline top-right -->
-    <div class="hero-tagline flex justify-end pt-6 mb-auto">
-      <p class="font-display font-black text-charcoal uppercase leading-none text-2xl sm:text-3xl lg:text-4xl tracking-tight text-right opacity-90">
-        PROTECT NOW.<br />LEAD TOMORROW.
-      </p>
-    </div>
-
-    <!-- Main content -->
-    <div class="flex-1 flex flex-col justify-center py-8 lg:py-12 max-w-4xl">
-      <p class="hero-label font-display text-xs font-semibold uppercase tracking-widest2 text-charcoal/45 mb-4">
-        Intellectual Property Advisory
-      </p>
-      <h1 class="hero-heading font-display font-black text-charcoal uppercase leading-none text-3xl sm:text-4xl lg:text-5xl xl:text-6xl mb-6 tracking-tight">
-        {t('hero.headline')}
-      </h1>
-      <p class="hero-sub text-charcoal-muted text-sm sm:text-base max-w-lg mb-8 font-light leading-relaxed">
-        {t('hero.subheadline')}
-      </p>
-      <div class="hero-ctas flex flex-col sm:flex-row gap-3">
-        <a
-          href={`${base}/#booking`}
-          class="bg-charcoal text-cream font-display font-bold text-xs uppercase tracking-widest px-8 py-4 hover:bg-charcoal-light transition-colors duration-200 text-center"
-        >
-          {t('hero.cta.primary')}
-        </a>
-        <a
-          href={`${base}/#services`}
-          class="border border-charcoal/25 text-charcoal font-display font-semibold text-xs uppercase tracking-widest px-8 py-4 hover:bg-charcoal/5 transition-colors duration-200 text-center"
-        >
-          {t('hero.cta.secondary')}
-        </a>
+        <!-- SM monogram -->
+        <div class="hero-monogram mt-auto pt-14 select-none hidden lg:block" aria-hidden="true">
+          <span class="font-display font-black text-charcoal/6 leading-none uppercase"
+            style="font-size: clamp(3rem, 7vw, 6rem); line-height: 1;">
+            SM
+          </span>
+        </div>
       </div>
-    </div>
 
-    <!-- SM monogram bottom-left -->
-    <div class="hero-monogram pb-6 select-none" aria-hidden="true">
-      <span class="font-display font-black text-charcoal/8 leading-none uppercase"
-        style="font-size: clamp(4rem, 10vw, 8rem); line-height: 1;">
-        SM
-      </span>
+      <!-- Right: Europe map (desktop only) -->
+      <div class="hero-map hidden lg:flex items-center justify-center h-full py-16 opacity-90">
+        <HeroMap client:load />
+      </div>
+
     </div>
   </div>
-
 </section>
