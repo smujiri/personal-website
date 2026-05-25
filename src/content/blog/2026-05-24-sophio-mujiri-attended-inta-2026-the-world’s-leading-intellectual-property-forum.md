@@ -5,6 +5,7 @@ description: Mujiri IP Founder Sophio Mujiri joined over 9,500 global IP
   professionals in London to discuss the future of trademark law, AI, and
   international brand protection.
 pubDate: 2026-05-07T15:23:00.000Z
+thumbnail: /uploads/panel_inta.jpg
 tags:
   - INTA
   - "2026"
