@@ -1,10 +1,10 @@
 ---
-title: Founder of Mujiri IP Participates in the 6th EUIPO IP Case Law
-  Conference 2026
+title: Founder of Mujiri IP Participates in the 6th EUIPO IP Case Law Conference 2026
 description: Exploring the future of IP law, AI disputes, and emerging design
   frameworks at EUIPO’s flagship "Growing through Change" conference in
   Alicante.
 pubDate: 2026-05-24T19:42:00.000Z
+thumbnail: /uploads/euipo_people.jpg
 tags:
   - EUIPO
   - IPCLC
