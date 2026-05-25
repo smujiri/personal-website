@@ -61,7 +61,7 @@ const t = useTranslations(lang);
 
         <div>
           <label for="cf-company" class="block font-display text-xs uppercase tracking-widest text-charcoal/50 mb-2">
-            Company <span class="text-charcoal/25 normal-case tracking-normal font-sans font-normal text-xs">optional</span>
+            Company
           </label>
           <input
             id="cf-company"
@@ -75,12 +75,13 @@ const t = useTranslations(lang);
 
         <div>
           <label for="cf-subject" class="block font-display text-xs uppercase tracking-widest text-charcoal/50 mb-2">
-            Subject
+            Subject <span class="text-charcoal/30">*</span>
           </label>
           <input
             id="cf-subject"
             name="subject"
             type="text"
+            required
             placeholder="e.g. Trademark registration in Georgia"
             class="w-full bg-white border border-cream-dark focus:border-charcoal/30 font-display text-sm text-charcoal placeholder-charcoal/20 px-4 py-3 outline-none transition-colors"
           />
@@ -150,7 +151,7 @@ const t = useTranslations(lang);
       message: (form.elements.namedItem('message') as HTMLTextAreaElement).value.trim(),
     };
 
-    if (!data.name || !data.email || !data.message) {
+    if (!data.name || !data.email || !data.subject || !data.message) {
       status.textContent = 'Please fill in all required fields.';
       status.className = 'font-display text-xs tracking-wide text-red-500/70';
       status.classList.remove('hidden');
