@@ -20,8 +20,8 @@ const canonicalUrl = `https://mujiri.ge${Astro.url.pathname}`;
 const orgSchema = {
   '@context': 'https://schema.org',
   '@type': ['LegalService', 'ProfessionalService'],
-  name: 'SM Consulting',
-  description: 'SM Consulting is a full-service intellectual property and business law firm based in Tbilisi, Georgia, working with trusted partners worldwide.',
+  name: 'Mujiri IP',
+  description: 'Mujiri IP is a full-service intellectual property and business law firm based in Tbilisi, Georgia, working with trusted partners worldwide.',
   url: 'https://mujiri.ge',
   logo: 'https://mujiri.ge/favicon.svg',
   address: {
@@ -61,7 +61,7 @@ const orgSchema = {
     <meta property="og:title" content={title} />
     {description && <meta property="og:description" content={description} />}
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:site_name" content="SM Consulting" />
+    <meta property="og:site_name" content="Mujiri IP" />
     <meta property="og:locale" content={lang === 'ka' ? 'ka_GE' : 'en_US'} />
 
     <!-- Hreflang -->

@@ -29,7 +29,8 @@
       "Bash(git push *)",
       "WebFetch(domain:css-pattern.com)",
       "WebFetch(domain:pattern.monster)",
-      "WebFetch(domain:www.heropatterns.com)"
+      "WebFetch(domain:www.heropatterns.com)",
+      "Bash(xargs sed -i 's/SM Consulting/Mujiri IP/g')"
     ]
   }
 }

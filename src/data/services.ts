@@ -58,8 +58,8 @@ export const servicesData: ServiceData[] = [
       },
     ],
     outro: 'We help clients build, protect, enforce, and commercially strengthen their brands across local and international markets.',
-    seoTitle: 'Trademark Registration Georgia | Sakpatenti, EUIPO, WIPO | SM Consulting',
-    seoDescription: 'Expert trademark registration in Georgia (Sakpatenti), EU (EUIPO), and internationally via the WIPO Madrid System. Brand protection, portfolio management, and enforcement from SM Consulting, Tbilisi.',
+    seoTitle: 'Trademark Registration Georgia | Sakpatenti, EUIPO, WIPO | Mujiri IP',
+    seoDescription: 'Expert trademark registration in Georgia (Sakpatenti), EU (EUIPO), and internationally via the WIPO Madrid System. Brand protection, portfolio management, and enforcement from Mujiri IP, Tbilisi.',
   },
   {
     slug: 'industrial-designs',
@@ -103,8 +103,8 @@ export const servicesData: ServiceData[] = [
       },
     ],
     outro: 'We help clients protect and strengthen the visual identity, appearance, and commercial value of their products across local and international markets.',
-    seoTitle: 'Industrial Design Registration Georgia | EUIPO, Hague System | SM Consulting',
-    seoDescription: 'Industrial design registration and protection in Georgia (Sakpatenti), EU (EUIPO), and through the Hague System (WIPO). Strategic design advisory from SM Consulting, Tbilisi.',
+    seoTitle: 'Industrial Design Registration Georgia | EUIPO, Hague System | Mujiri IP',
+    seoDescription: 'Industrial design registration and protection in Georgia (Sakpatenti), EU (EUIPO), and through the Hague System (WIPO). Strategic design advisory from Mujiri IP, Tbilisi.',
   },
   {
     slug: 'patents-utility-models',
@@ -150,8 +150,8 @@ export const servicesData: ServiceData[] = [
       },
     ],
     outro: 'We help clients protect innovation, reduce legal and commercial risks, and transform technology and research into long-term business value across international markets.',
-    seoTitle: 'Patent Registration Georgia | PCT, WIPO Filing | SM Consulting',
-    seoDescription: 'Patent and utility model protection in Georgia (Sakpatenti), international PCT filings (WIPO), and European patent validation. Innovation advisory from SM Consulting, Tbilisi.',
+    seoTitle: 'Patent Registration Georgia | PCT, WIPO Filing | Mujiri IP',
+    seoDescription: 'Patent and utility model protection in Georgia (Sakpatenti), international PCT filings (WIPO), and European patent validation. Innovation advisory from Mujiri IP, Tbilisi.',
   },
   {
     slug: 'geographical-indications',
@@ -196,7 +196,7 @@ export const servicesData: ServiceData[] = [
       },
     ],
     outro: 'We support producers, associations, institutions, and right holders in protecting the authenticity, reputation, and economic value of geographically linked products in national and international markets.',
-    seoTitle: 'Geographical Indications Protection Georgia | GI Registration | SM Consulting',
+    seoTitle: 'Geographical Indications Protection Georgia | GI Registration | Mujiri IP',
     seoDescription: 'Strategic advisory and registration of Geographical Indications (GIs) in Georgia and internationally. Protection of regional products, appellations of origin, and traditional know-how.',
   },
   {
@@ -242,7 +242,7 @@ export const servicesData: ServiceData[] = [
       },
     ],
     outro: 'We help clients protect agricultural innovation, secure breeders\' rights, and maximize the commercial value of new plant varieties across national and international markets.',
-    seoTitle: 'New Plant Variety Protection Georgia | Plant Breeders Rights | SM Consulting',
+    seoTitle: 'New Plant Variety Protection Georgia | Plant Breeders Rights | Mujiri IP',
     seoDescription: 'Protection of new plant varieties and Plant Breeders\' Rights in Georgia and internationally. Advisory on DUS examinations, registration, and commercialization for breeders and agricultural businesses.',
   },
   {
@@ -289,7 +289,7 @@ export const servicesData: ServiceData[] = [
       },
     ],
     outro: 'We help right holders protect, commercialize, and enforce their creative and digital assets while supporting long-term business growth and value creation.',
-    seoTitle: 'Copyright Protection Georgia | Creative Rights & Digital IP | SM Consulting',
+    seoTitle: 'Copyright Protection Georgia | Creative Rights & Digital IP | Mujiri IP',
     seoDescription: 'Strategic copyright and related rights advisory in Georgia. Protecting artistic, literary, audiovisual, and software works through licensing, enforcement, and digital brand protection.',
   },
   {
@@ -345,13 +345,13 @@ export const servicesData: ServiceData[] = [
       },
     ],
     outro: 'We provide comprehensive digital protection strategies designed to safeguard brands, intellectual property, reputation, and commercial value across the online environment.',
-    seoTitle: 'Domain Name Disputes & Digital Brand Protection Georgia | SM Consulting',
-    seoDescription: 'Domain name strategy, UDRP dispute procedures, online brand monitoring, and digital IP protection in Georgia and internationally. Protect your digital presence with SM Consulting.',
+    seoTitle: 'Domain Name Disputes & Digital Brand Protection Georgia | Mujiri IP',
+    seoDescription: 'Domain name strategy, UDRP dispute procedures, online brand monitoring, and digital IP protection in Georgia and internationally. Protect your digital presence with Mujiri IP.',
   },
   {
     slug: 'ip-strategy-consulting',
     title: 'IP Strategy & Consulting',
-    intro: 'Intellectual property is no longer only a legal protection tool — it is a strategic business asset that drives innovation, investment, market positioning, and long-term growth. At SM Consulting, we help businesses, creators, startups, investors, and institutions develop intellectual property strategies aligned with their commercial objectives, innovation models, and international expansion plans.',
+    intro: 'Intellectual property is no longer only a legal protection tool — it is a strategic business asset that drives innovation, investment, market positioning, and long-term growth. At Mujiri IP, we help businesses, creators, startups, investors, and institutions develop intellectual property strategies aligned with their commercial objectives, innovation models, and international expansion plans.',
     sections: [
       {
         heading: 'Strategic IP Advisory',
@@ -400,8 +400,8 @@ export const servicesData: ServiceData[] = [
       },
     ],
     outro: 'We work closely with our clients to transform intellectual property into a valuable strategic asset that supports innovation, strengthens competitive advantage, and creates long-term commercial value.',
-    seoTitle: 'IP Strategy & Portfolio Consulting Georgia | SM Consulting',
-    seoDescription: 'Tailored intellectual property strategies for businesses, startups, and investors in Georgia and internationally. IP portfolio audits, commercialization, licensing, and innovation advisory from SM Consulting.',
+    seoTitle: 'IP Strategy & Portfolio Consulting Georgia | Mujiri IP',
+    seoDescription: 'Tailored intellectual property strategies for businesses, startups, and investors in Georgia and internationally. IP portfolio audits, commercialization, licensing, and innovation advisory from Mujiri IP.',
   },
   {
     slug: 'enforcement-anti-counterfeiting',
@@ -448,8 +448,8 @@ export const servicesData: ServiceData[] = [
       },
     ],
     outro: 'We help right holders proactively protect and enforce their intellectual property rights while minimizing commercial risks and strengthening brand integrity in national and international markets.',
-    seoTitle: 'IP Enforcement & Anti-Counterfeiting Georgia | Brand Protection | SM Consulting',
-    seoDescription: 'Strategic IP enforcement, customs recordation, anti-counterfeiting advisory, and cross-border enforcement in Georgia and internationally. Protect your brands and innovation with SM Consulting.',
+    seoTitle: 'IP Enforcement & Anti-Counterfeiting Georgia | Brand Protection | Mujiri IP',
+    seoDescription: 'Strategic IP enforcement, customs recordation, anti-counterfeiting advisory, and cross-border enforcement in Georgia and internationally. Protect your brands and innovation with Mujiri IP.',
   },
   {
     slug: 'legal-contractual-services',
@@ -506,8 +506,8 @@ export const servicesData: ServiceData[] = [
       },
     ],
     outro: 'We help businesses, creators, startups, investors, and international companies structure legally secure and commercially effective relationships while protecting innovation, brands, technology, and business value.',
-    seoTitle: 'IP & Commercial Contracts Georgia | Legal Advisory | SM Consulting',
-    seoDescription: 'Drafting and negotiation of IP licenses, technology transfer agreements, NDAs, commercial contracts, and digital compliance documentation in Georgia. Legal advisory from SM Consulting, Tbilisi.',
+    seoTitle: 'IP & Commercial Contracts Georgia | Legal Advisory | Mujiri IP',
+    seoDescription: 'Drafting and negotiation of IP licenses, technology transfer agreements, NDAs, commercial contracts, and digital compliance documentation in Georgia. Legal advisory from Mujiri IP, Tbilisi.',
   },
   {
     slug: 'litigation-dispute-resolution',
@@ -553,8 +553,8 @@ export const servicesData: ServiceData[] = [
       },
     ],
     outro: 'We help clients resolve disputes strategically while protecting innovation, reputation, commercial interests, and long-term business value.',
-    seoTitle: 'IP Litigation & Dispute Resolution Georgia | SM Consulting',
-    seoDescription: 'Strategic IP litigation, dispute resolution, and representation before Georgian courts. Trademark, patent, copyright, and commercial disputes handled by SM Consulting, Tbilisi.',
+    seoTitle: 'IP Litigation & Dispute Resolution Georgia | Mujiri IP',
+    seoDescription: 'Strategic IP litigation, dispute resolution, and representation before Georgian courts. Trademark, patent, copyright, and commercial disputes handled by Mujiri IP, Tbilisi.',
   },
   {
     slug: 'government-institutional-consulting',
@@ -610,8 +610,8 @@ export const servicesData: ServiceData[] = [
       },
     ],
     outro: 'We help institutions and organizations build effective intellectual property systems, strengthen innovation capacity, and create sustainable frameworks for the protection and commercialization of knowledge and creativity.',
-    seoTitle: 'IP Policy & Institutional Consulting Georgia | Government Advisory | SM Consulting',
-    seoDescription: 'IP strategy and policy advisory for governments, universities, and innovation agencies in Georgia. Technology Transfer Office development, capacity building, and institutional IP frameworks from SM Consulting.',
+    seoTitle: 'IP Policy & Institutional Consulting Georgia | Government Advisory | Mujiri IP',
+    seoDescription: 'IP strategy and policy advisory for governments, universities, and innovation agencies in Georgia. Technology Transfer Office development, capacity building, and institutional IP frameworks from Mujiri IP.',
   },
   {
     slug: 'ip-education',
@@ -658,8 +658,8 @@ export const servicesData: ServiceData[] = [
       },
     ],
     outro: 'We help institutions, educators, and innovators build strong intellectual property awareness and practical innovation skills through modern, accessible, and strategically designed educational programs.',
-    seoTitle: 'IP Education & Training Programs Georgia | WIPO | SM Consulting',
-    seoDescription: 'Intellectual property education, university lectures, professional workshops, and capacity-building programs in Georgia. Modern IP training for institutions, educators, and innovators from SM Consulting.',
+    seoTitle: 'IP Education & Training Programs Georgia | WIPO | Mujiri IP',
+    seoDescription: 'Intellectual property education, university lectures, professional workshops, and capacity-building programs in Georgia. Modern IP training for institutions, educators, and innovators from Mujiri IP.',
   },
 ];
 

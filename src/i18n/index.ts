@@ -16,7 +16,7 @@ export const ui = {
     'nav.insights': 'News & Insights',
     'nav.book': 'Book Consultation',
     'hero.headline': 'Because great ideas deserve to flourish.',
-    'hero.subheadline': 'SM Consulting is a full-service intellectual property (IP) and business law firm based in Tbilisi, Georgia, working with trusted partners worldwide.',
+    'hero.subheadline': 'Mujiri IP is a full-service intellectual property (IP) and business law firm based in Tbilisi, Georgia, working with trusted partners worldwide.',
     'hero.cta.primary': 'Book a Consultation',
     'hero.cta.secondary': 'Explore Services',
     'hero.trusted': 'Partner institutions & affiliations',
@@ -50,7 +50,7 @@ export const ui = {
     'service13.desc': 'Modern intellectual property education programs for schools, universities, research centers, and professional organizations — including curriculum development, university lectures, specialized seminars on trademarks, patents, and copyright, and innovation-focused capacity-building initiatives.',
     'about.title': 'Legal Expertise. Business Understanding.',
     'about.subtitle': 'Two decades of expertise, now at your direct service.',
-    'about.body': 'With more than 20 years of experience in the intellectual property field across both the public and private sectors, I have had the opportunity to work with the Georgian Intellectual Property Office (Sakpatenti), the European Union Intellectual Property Office (EUIPO), IP law firms, businesses, creators, and professional associations. This experience has given me a unique understanding of the intellectual property ecosystem from every perspective — from institutions and rights holders to innovators, startups, and global businesses. SM Consulting was created with a clear vision: to provide modern, strategic, and client-focused intellectual property services where legal expertise meets business understanding. We work as part of our clients\' team, delivering tailored, flexible, and commercially practical solutions so they can focus on creating, innovating, and growing with confidence.',
+    'about.body': 'With more than 20 years of experience in the intellectual property field across both the public and private sectors, I have had the opportunity to work with the Georgian Intellectual Property Office (Sakpatenti), the European Union Intellectual Property Office (EUIPO), IP law firms, businesses, creators, and professional associations. This experience has given me a unique understanding of the intellectual property ecosystem from every perspective — from institutions and rights holders to innovators, startups, and global businesses. Mujiri IP was created with a clear vision: to provide modern, strategic, and client-focused intellectual property services where legal expertise meets business understanding. We work as part of our clients\' team, delivering tailored, flexible, and commercially practical solutions so they can focus on creating, innovating, and growing with confidence.',
     'about.cred1': 'Patent Attorney & Attorney at Law',
     'about.cred2': 'Georgian IP Office — Sakpatenti',
     'about.cred3': 'EU Intellectual Property Office (EUIPO)',
@@ -81,8 +81,8 @@ export const ui = {
     'cookie.message': 'We use cookies to enhance your experience and analyze site traffic. By continuing, you consent to our use of cookies in accordance with our Privacy Policy.',
     'cookie.accept': 'Accept All',
     'cookie.decline': 'Decline',
-    'meta.title': 'SM Consulting | Trademark & Patent Attorney Georgia | IP Law Firm',
-    'meta.description': 'SM Consulting is a full-service intellectual property and business law firm in Tbilisi, Georgia. Trademark registration, patent protection, IP strategy, and legal advisory for businesses, startups, and international clients.',
+    'meta.title': 'Mujiri IP | Trademark & Patent Attorney Georgia | IP Law Firm',
+    'meta.description': 'Mujiri IP is a full-service intellectual property and business law firm in Tbilisi, Georgia. Trademark registration, patent protection, IP strategy, and legal advisory for businesses, startups, and international clients.',
   },
 
   ka: {
