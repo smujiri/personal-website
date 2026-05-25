@@ -1,170 +1,42 @@
-// Europe dot-map hero visual
-// Landmass rendered as a repeating dot pattern clipped to country shapes.
-// City positions shown as small squares (no labels), lines converge on Georgia.
+// Decorative SVG map of Europe + Caucasus
+// Projection: equirectangular — x = (lon+12)/67*900, y = (60-lat)/27*540
 
 const W = 900;
-const H = 520;
+const H = 540;
 
 function px(lon: number, lat: number): [number, number] {
-  // Equirectangular: lon -12→58 (70°), lat 33→72 (39°)
   return [
-    Math.round(((lon + 12) / 70) * W),
-    Math.round(((72 - lat) / 39) * H),
+    Math.round(((lon + 12) / 67) * W),
+    Math.round(((60 - lat) / 27) * H),
   ];
 }
 
-const [TX, TY] = px(44.8, 41.7); // Tbilisi
+const [TX, TY] = px(44.8, 41.7); // Tbilisi: [763, 366]
 
-// City square markers — no labels shown
 const cities = [
-  px(-0.1,  51.5),  // London
-  px( 2.35, 48.85), // Paris
-  px(13.4,  52.5),  // Berlin
-  px(12.5,  41.9),  // Rome
-  px(21.0,  52.2),  // Warsaw
-  px(29.0,  41.0),  // Istanbul
-  px( 4.9,  52.4),  // Amsterdam
-  px(16.4,  48.2),  // Vienna
+  { name: 'London',   x: px(-0.1,  51.5)[0], y: px(-0.1,  51.5)[1], cx: 400, cy: 50  },
+  { name: 'Paris',    x: px( 2.35, 48.85)[0], y: px( 2.35, 48.85)[1], cx: 460, cy: 70  },
+  { name: 'Berlin',   x: px(13.4,  52.5)[0],  y: px(13.4,  52.5)[1],  cx: 560, cy: 55  },
+  { name: 'Rome',     x: px(12.5,  41.9)[0],  y: px(12.5,  41.9)[1],  cx: 540, cy: 295 },
+  { name: 'Warsaw',   x: px(21.0,  52.2)[0],  y: px(21.0,  52.2)[1],  cx: 600, cy: 95  },
+  { name: 'Istanbul', x: px(29.0,  41.0)[0],  y: px(29.0,  41.0)[1],  cx: 655, cy: 340 },
 ];
 
-// Bezier control points for lines (city → Tbilisi)
-const lineControls = [
-  [380,  60], // London
-  [440,  80], // Paris
-  [550,  50], // Berlin
-  [540, 280], // Rome
-  [590,  80], // Warsaw
-  [650, 330], // Istanbul
-  [430,  65], // Amsterdam
-  [590, 130], // Vienna
+const countryPaths = [
+  'M 40,318 L 204,328 L 204,492 L 89,492 L 40,492 Z',                                   // Iberia
+  'M 103,238 L 152,176 L 191,176 L 270,176 L 270,258 L 261,328 L 204,328 L 128,328 L 103,318 Z', // France
+  'M 89,200 L 151,190 L 202,166 L 204,118 L 130,86 L 102,50 L 77,78 L 100,118 Z',       // UK
+  'M 48,184 L 75,178 L 78,210 L 50,214 Z',                                               // Ireland
+  'M 238,104 L 362,104 L 376,220 L 396,268 L 344,308 L 280,268 L 238,220 Z',            // Central EU
+  'M 218,50 L 358,38 L 430,50 L 486,90 L 362,108 L 294,80 L 240,50 Z',                  // Scandinavia
+  'M 362,108 L 486,90 L 486,224 L 456,244 L 396,268 L 376,220 Z',                       // Poland + Baltic
+  'M 254,318 L 344,318 L 418,382 L 376,448 L 364,492 L 320,448 L 266,400 L 254,340 Z',  // Italy
+  'M 344,308 L 396,268 L 456,244 L 568,298 L 556,386 L 512,408 L 460,386 L 430,374 L 364,386 L 344,346 Z', // Balkans
+  'M 456,244 L 700,244 L 700,322 L 568,298 Z',                                           // Ukraine
+  'M 514,362 L 756,362 L 756,474 L 514,474 Z',                                           // Turkey
 ];
 
-// Country/region shapes — used as clipPath for dot pattern.
-// Smoother polygon approximations of each region.
-const landPaths = [
-  // Iberian Peninsula
-  `M ${px(-9,44)[0]},${px(-9,44)[1]}
-   L ${px(-1,44)[0]},${px(-1,44)[1]}
-   Q ${px(3,43.5)[0]},${px(3,43.5)[1]} ${px(3.3,41)[0]},${px(3.3,41)[1]}
-   Q ${px(0,37)[0]},${px(0,37)[1]} ${px(-5.5,36)[0]},${px(-5.5,36)[1]}
-   Q ${px(-9,36.5)[0]},${px(-9,36.5)[1]} ${px(-9,38)[0]},${px(-9,38)[1]}
-   Z`,
-
-  // France + Benelux
-  `M ${px(-5,43.5)[0]},${px(-5,43.5)[1]}
-   Q ${px(-1,43.5)[0]},${px(-1,43.5)[1]} ${px(3,43.5)[0]},${px(3,43.5)[1]}
-   Q ${px(7.5,44)[0]},${px(7.5,44)[1]} ${px(8,47.5)[0]},${px(8,47.5)[1]}
-   L ${px(8,51)[0]},${px(8,51)[1]}
-   L ${px(3,51.5)[0]},${px(3,51.5)[1]}
-   L ${px(2,51)[0]},${px(2,51)[1]}
-   Q ${px(-2,50.5)[0]},${px(-2,50.5)[1]} ${px(-5,48)[0]},${px(-5,48)[1]}
-   Q ${px(-5,46)[0]},${px(-5,46)[1]} ${px(-5,43.5)[0]},${px(-5,43.5)[1]}
-   Z`,
-
-  // UK mainland (England + Wales + Scotland simplified)
-  `M ${px(-5.5,50)[0]},${px(-5.5,50)[1]}
-   Q ${px(-2,50)[0]},${px(-2,50)[1]} ${px(1.5,51.5)[0]},${px(1.5,51.5)[1]}
-   Q ${px(0,53)[0]},${px(0,53)[1]} ${px(-2,54.5)[0]},${px(-2,54.5)[1]}
-   Q ${px(-4,57)[0]},${px(-4,57)[1]} ${px(-5,57.5)[0]},${px(-5,57.5)[1]}
-   Q ${px(-7,56)[0]},${px(-7,56)[1]} ${px(-5.5,54)[0]},${px(-5.5,54)[1]}
-   Q ${px(-5,52)[0]},${px(-5,52)[1]} ${px(-5.5,50)[0]},${px(-5.5,50)[1]}
-   Z`,
-
-  // Ireland
-  `M ${px(-10,51.5)[0]},${px(-10,51.5)[1]}
-   Q ${px(-7,51)[0]},${px(-7,51)[1]} ${px(-6,53)[0]},${px(-6,53)[1]}
-   Q ${px(-8,54)[0]},${px(-8,54)[1]} ${px(-10,53)[0]},${px(-10,53)[1]}
-   Z`,
-
-  // Germany + Austria + Switzerland + Benelux extension
-  `M ${px(6,51)[0]},${px(6,51)[1]}
-   L ${px(14,54)[0]},${px(14,54)[1]}
-   L ${px(15,50.5)[0]},${px(15,50.5)[1]}
-   Q ${px(17,48)[0]},${px(17,48)[1]} ${px(17,47.5)[0]},${px(17,47.5)[1]}
-   Q ${px(14,46)[0]},${px(14,46)[1]} ${px(13,46.5)[0]},${px(13,46.5)[1]}
-   Q ${px(9,47)[0]},${px(9,47)[1]} ${px(8,47.5)[0]},${px(8,47.5)[1]}
-   L ${px(6,51)[0]},${px(6,51)[1]}
-   Z`,
-
-  // Scandinavia (Denmark + Norway + Sweden — southern visible portion)
-  `M ${px(8,57)[0]},${px(8,57)[1]}
-   Q ${px(14,58)[0]},${px(14,58)[1]} ${px(20,59)[0]},${px(20,59)[1]}
-   Q ${px(26,62)[0]},${px(26,62)[1]} ${px(24,64)[0]},${px(24,64)[1]}
-   Q ${px(20,66)[0]},${px(20,66)[1]} ${px(15,67)[0]},${px(15,67)[1]}
-   Q ${px(14,64)[0]},${px(14,64)[1]} ${px(18,60)[0]},${px(18,60)[1]}
-   Q ${px(12,58)[0]},${px(12,58)[1]} ${px(8,57)[0]},${px(8,57)[1]}
-   Z`,
-
-  // Poland + Czech + Slovakia + Baltic states
-  `M ${px(14,54)[0]},${px(14,54)[1]}
-   L ${px(24,54.5)[0]},${px(24,54.5)[1]}
-   Q ${px(28,56)[0]},${px(28,56)[1]} ${px(26,57)[0]},${px(26,57)[1]}
-   Q ${px(22,57)[0]},${px(22,57)[1]} ${px(21,56)[0]},${px(21,56)[1]}
-   L ${px(24,54.5)[0]},${px(24,54.5)[1]}
-   L ${px(24,48)[0]},${px(24,48)[1]}
-   Q ${px(21,47.5)[0]},${px(21,47.5)[1]} ${px(17,47.5)[0]},${px(17,47.5)[1]}
-   L ${px(15,50.5)[0]},${px(15,50.5)[1]}
-   L ${px(14,54)[0]},${px(14,54)[1]}
-   Z`,
-
-  // Italy peninsula
-  `M ${px(7.5,44)[0]},${px(7.5,44)[1]}
-   Q ${px(13,44.5)[0]},${px(13,44.5)[1]} ${px(14,41)[0]},${px(14,41)[1]}
-   Q ${px(16,38.5)[0]},${px(16,38.5)[1]} ${px(15.5,37.5)[0]},${px(15.5,37.5)[1]}
-   Q ${px(13,37.5)[0]},${px(13,37.5)[1]} ${px(12,38)[0]},${px(12,38)[1]}
-   Q ${px(9,40)[0]},${px(9,40)[1]} ${px(8,43)[0]},${px(8,43)[1]}
-   Z`,
-
-  // Balkans + Romania + Hungary + Greece
-  `M ${px(13,46.5)[0]},${px(13,46.5)[1]}
-   L ${px(17,47.5)[0]},${px(17,47.5)[1]}
-   L ${px(24,48)[0]},${px(24,48)[1]}
-   Q ${px(30,46)[0]},${px(30,46)[1]} ${px(30,44)[0]},${px(30,44)[1]}
-   Q ${px(28,41)[0]},${px(28,41)[1]} ${px(26,40)[0]},${px(26,40)[1]}
-   Q ${px(23,37)[0]},${px(23,37)[1]} ${px(22,37.5)[0]},${px(22,37.5)[1]}
-   Q ${px(20,38)[0]},${px(20,38)[1]} ${px(20,40)[0]},${px(20,40)[1]}
-   Q ${px(16,41)[0]},${px(16,41)[1]} ${px(14,41)[0]},${px(14,41)[1]}
-   Q ${px(13,44)[0]},${px(13,44)[1]} ${px(13,46.5)[0]},${px(13,46.5)[1]}
-   Z`,
-
-  // Greece islands + peninsula extension
-  `M ${px(22,37.5)[0]},${px(22,37.5)[1]}
-   Q ${px(24,36)[0]},${px(24,36)[1]} ${px(26,36.5)[0]},${px(26,36.5)[1]}
-   Q ${px(26,38)[0]},${px(26,38)[1]} ${px(24,38)[0]},${px(24,38)[1]}
-   Z`,
-
-  // Ukraine + Moldova + Belarus
-  `M ${px(24,54.5)[0]},${px(24,54.5)[1]}
-   Q ${px(34,52)[0]},${px(34,52)[1]} ${px(40,52)[0]},${px(40,52)[1]}
-   Q ${px(40,47)[0]},${px(40,47)[1]} ${px(38,46)[0]},${px(38,46)[1]}
-   Q ${px(34,45)[0]},${px(34,45)[1]} ${px(30,46)[0]},${px(30,46)[1]}
-   L ${px(24,48)[0]},${px(24,48)[1]}
-   Z`,
-
-  // Turkey (western + central)
-  `M ${px(26,42)[0]},${px(26,42)[1]}
-   Q ${px(36,42)[0]},${px(36,42)[1]} ${px(44,42)[0]},${px(44,42)[1]}
-   Q ${px(44,37)[0]},${px(44,37)[1]} ${px(36,36)[0]},${px(36,36)[1]}
-   Q ${px(28,36)[0]},${px(28,36)[1]} ${px(26,38)[0]},${px(26,38)[1]}
-   Z`,
-
-  // Caucasus region (Armenia + Azerbaijan + small bits)
-  `M ${px(40,42)[0]},${px(40,42)[1]}
-   L ${px(50,42)[0]},${px(50,42)[1]}
-   Q ${px(50,39)[0]},${px(50,39)[1]} ${px(44,37)[0]},${px(44,37)[1]}
-   Q ${px(40,37)[0]},${px(40,37)[1]} ${px(40,39)[0]},${px(40,39)[1]}
-   Z`,
-];
-
-// Georgia polygon (separate — rendered with darker dots)
-const georgiaPath = `
-  M ${px(40.0,43.5)[0]},${px(40.0,43.5)[1]}
-  Q ${px(43,43.7)[0]},${px(43,43.7)[1]} ${px(46.5,43)[0]},${px(46.5,43)[1]}
-  Q ${px(46.7,42)[0]},${px(46.7,42)[1]} ${px(46.2,41.2)[0]},${px(46.2,41.2)[1]}
-  Q ${px(43.5,41)[0]},${px(43.5,41)[1]} ${px(41,41.2)[0]},${px(41,41.2)[1]}
-  Q ${px(40,41.8)[0]},${px(40,41.8)[1]} ${px(40.0,43.5)[0]},${px(40.0,43.5)[1]}
-  Z
-`;
+const georgiaPath = 'M 699,338 L 754,334 L 793,342 L 793,366 L 754,382 L 720,376 L 699,366 Z';
 
 export default function HeroMap() {
   return (
@@ -176,96 +48,104 @@ export default function HeroMap() {
       aria-hidden="true"
     >
       <defs>
-        {/* Regular land dot pattern */}
-        <pattern id="dots-land" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
-          <circle cx="4" cy="4" r="1.4" fill="rgba(26,50,96,0.22)" />
-        </pattern>
-
-        {/* Georgia highlight dot pattern — darker */}
-        <pattern id="dots-georgia" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
-          <circle cx="4" cy="4" r="1.7" fill="rgba(26,50,96,0.65)" />
-        </pattern>
-
-        {/* Clip path for all land */}
-        <clipPath id="clip-land">
-          {landPaths.map((d, i) => <path key={i} d={d} />)}
-        </clipPath>
-
-        {/* Clip path for Georgia */}
-        <clipPath id="clip-georgia">
-          <path d={georgiaPath} />
-        </clipPath>
-
         <style>{`
           @keyframes drawLine {
             from { stroke-dashoffset: 1400; }
             to   { stroke-dashoffset: 0; }
           }
+          @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+          }
           .conn-line {
             stroke-dasharray: 1400;
             stroke-dashoffset: 1400;
-            animation: drawLine 2s cubic-bezier(0.4,0,0.2,1) forwards;
+            animation: drawLine 2.2s cubic-bezier(0.4,0,0.2,1) forwards;
+          }
+          .city-el {
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
           }
         `}</style>
       </defs>
 
-      {/* Land: dot pattern clipped to all country shapes */}
-      <rect width={W} height={H} fill="url(#dots-land)" clipPath="url(#clip-land)" />
+      {/* Country fills + dotted borders */}
+      {countryPaths.map((d, i) => (
+        <path
+          key={i}
+          d={d}
+          fill="rgba(26,50,96,0.04)"
+          stroke="rgba(26,50,96,0.18)"
+          strokeWidth="0.8"
+          strokeDasharray="3 6"
+          strokeLinejoin="round"
+        />
+      ))}
 
-      {/* Georgia: darker dot pattern */}
-      <rect width={W} height={H} fill="url(#dots-georgia)" clipPath="url(#clip-georgia)" />
-
-      {/* Georgia outline */}
+      {/* Georgia — highlighted */}
       <path
         d={georgiaPath}
-        fill="none"
-        stroke="rgba(26,50,96,0.5)"
-        strokeWidth="1.2"
+        fill="rgba(26,50,96,0.13)"
+        stroke="rgba(26,50,96,0.55)"
+        strokeWidth="1.5"
         strokeLinejoin="round"
       />
 
-      {/* Connection lines — city squares → Tbilisi */}
-      {cities.map(([cx, cy], i) => (
+      {/* Animated connection lines */}
+      {cities.map((city, i) => (
         <path
-          key={`line-${i}`}
-          d={`M ${cx},${cy} Q ${lineControls[i][0]},${lineControls[i][1]} ${TX},${TY}`}
-          stroke="rgba(26,50,96,0.28)"
-          strokeWidth="0.9"
+          key={`line-${city.name}`}
+          d={`M ${city.x},${city.y} Q ${city.cx},${city.cy} ${TX},${TY}`}
+          stroke="rgba(26,50,96,0.30)"
+          strokeWidth="1"
           className="conn-line"
-          style={{ animationDelay: `${0.15 + i * 0.3}s` }}
+          style={{ animationDelay: `${0.2 + i * 0.45}s` }}
         />
       ))}
 
-      {/* City squares */}
-      {cities.map(([cx, cy], i) => (
-        <rect
-          key={`sq-${i}`}
-          x={cx - 3}
-          y={cy - 3}
-          width="6"
-          height="6"
-          fill="rgba(26,50,96,0.55)"
-        />
+      {/* City dots + labels */}
+      {cities.map((city, i) => (
+        <g
+          key={`city-${city.name}`}
+          className="city-el"
+          style={{ animationDelay: `${0.2 + i * 0.45}s` }}
+        >
+          <circle cx={city.x} cy={city.y} r="3" fill="rgba(26,50,96,0.45)" />
+          <text
+            x={city.x + 6}
+            y={city.y + 4}
+            fontSize="8"
+            fontFamily="Outfit, system-ui, sans-serif"
+            fill="rgba(26,50,96,0.45)"
+            letterSpacing="0.08em"
+          >
+            {city.name.toUpperCase()}
+          </text>
+        </g>
       ))}
 
       {/* Tbilisi pulse rings */}
-      {[0, 1.0].map((delay, i) => (
-        <circle key={i} cx={TX} cy={TY} r="4" fill="none" stroke="rgba(26,50,96,0.4)" strokeWidth="1">
-          <animate attributeName="r"       values="4;18"   dur="2.5s" begin={`${delay}s`} repeatCount="indefinite" />
+      {[0, 0.9].map((delay, i) => (
+        <circle key={i} cx={TX} cy={TY} r="5" fill="none" stroke="rgba(26,50,96,0.4)" strokeWidth="1">
+          <animate attributeName="r"       values="5;22"   dur="2.5s" begin={`${delay}s`} repeatCount="indefinite" />
           <animate attributeName="opacity" values="0.6;0"  dur="2.5s" begin={`${delay}s`} repeatCount="indefinite" />
         </circle>
       ))}
 
       {/* Tbilisi dot */}
-      <circle cx={TX} cy={TY} r="4" fill="#1A3260" />
+      <circle cx={TX} cy={TY} r="5" fill="rgba(26,50,96,0.12)" />
+      <circle cx={TX} cy={TY} r="3.5" fill="#1A3260" />
 
-      {/* Tbilisi label */}
-      <text
-        x={TX + 8} y={TY + 4}
-        fontSize="9" fontFamily="Outfit, system-ui, sans-serif" fontWeight="700"
-        fill="rgba(26,50,96,0.75)" letterSpacing="0.12em"
-      >
+      {/* Labels */}
+      <text x={TX + 9} y={TY + 4}
+        fontSize="9.5" fontFamily="Outfit, system-ui, sans-serif" fontWeight="700"
+        fill="rgba(26,50,96,0.75)" letterSpacing="0.12em">
         TBILISI
+      </text>
+      <text x="737" y="358"
+        fontSize="7" fontFamily="Outfit, system-ui, sans-serif"
+        fill="rgba(26,50,96,0.5)" letterSpacing="0.1em" textAnchor="middle">
+        GEORGIA
       </text>
     </svg>
   );
