@@ -8,6 +8,7 @@ const blog = defineCollection({
     pubDate: z.coerce.date(),
     author: z.string().default('Sophio Mujiri'),
     tags: z.array(z.string()).optional(),
+    thumbnail: z.string().optional(),
   }),
 });
 

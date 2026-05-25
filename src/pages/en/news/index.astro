@@ -53,25 +53,29 @@ function formatDate(date: Date) {
       ) : (
         <div class="divide-y divide-cream-dark">
           {posts.map(post => (
-            <article class="group py-10 grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <article class="group py-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+              <!-- Thumbnail -->
               <div class="lg:col-span-3">
-                <time
-                  datetime={post.data.pubDate.toISOString()}
-                  class="font-display text-xs font-medium uppercase tracking-widest text-charcoal/40"
-                >
-                  {formatDate(post.data.pubDate)}
-                </time>
-                {post.data.tags && post.data.tags.length > 0 && (
-                  <div class="flex flex-wrap gap-2 mt-3">
-                    {post.data.tags.map(tag => (
-                      <span class="font-display text-xs font-semibold uppercase tracking-widest text-charcoal/50 border border-cream-dark px-2 py-0.5">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
+                <a href={`/en/news/${post.slug}/`} class="block overflow-hidden bg-cream-dark" style="aspect-ratio: 4/3;">
+                  {post.data.thumbnail ? (
+                    <img
+                      src={post.data.thumbnail}
+                      alt={post.data.title}
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div class="w-full h-full flex items-center justify-center">
+                      <svg class="w-8 h-8 text-charcoal/15" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                  )}
+                </a>
               </div>
-              <div class="lg:col-span-8">
+
+              <!-- Content -->
+              <div class="lg:col-span-9">
                 <h2 class="font-display font-black text-charcoal uppercase text-xl sm:text-2xl leading-tight tracking-tight mb-3 group-hover:text-charcoal-light transition-colors">
                   <a href={`/en/news/${post.slug}/`} class="no-underline">
                     {post.data.title}
@@ -80,16 +84,35 @@ function formatDate(date: Date) {
                 <p class="text-charcoal-muted text-sm leading-relaxed font-light mb-5">
                   {post.data.description}
                 </p>
-                <a
-                  href={`/en/news/${post.slug}/`}
-                  class="inline-flex items-center gap-2 font-display font-bold text-xs uppercase tracking-widest text-charcoal hover:text-charcoal-light transition-colors no-underline"
-                >
-                  Read article
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </a>
+                <div class="flex flex-wrap items-center gap-4">
+                  <a
+                    href={`/en/news/${post.slug}/`}
+                    class="inline-flex items-center gap-2 font-display font-bold text-xs uppercase tracking-widest text-charcoal hover:text-charcoal-light transition-colors no-underline shrink-0"
+                  >
+                    Read article
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </a>
+                  <span class="text-charcoal/20 hidden sm:block">·</span>
+                  <time
+                    datetime={post.data.pubDate.toISOString()}
+                    class="font-display text-xs font-medium uppercase tracking-widest text-charcoal/40"
+                  >
+                    {formatDate(post.data.pubDate)}
+                  </time>
+                  {post.data.tags && post.data.tags.length > 0 && (
+                    <div class="flex flex-wrap gap-2">
+                      {post.data.tags.map(tag => (
+                        <span class="font-display text-xs font-semibold uppercase tracking-widest text-charcoal/50 border border-cream-dark px-2 py-0.5">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
+
             </article>
           ))}
         </div>
